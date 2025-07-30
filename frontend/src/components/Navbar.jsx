@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import logo from "../../public/assets/images/logo/logo.png";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
+  const location = useLocation();
+  const currentPath = location.pathname;
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -17,7 +20,9 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 z-50 px-6 py-4 transition-all duration-300 w-full h-[80px] ${
-        scrolled ? "bg-white/30  backdrop-blur-md shadow-md text-black" : "bg-transparent text-black"
+        scrolled
+          ? "bg-white/30  backdrop-blur-md shadow-md text-black"
+          : "bg-transparent text-black"
       }`}
     >
       <div className="max-w-6xl mx-auto flex justify-between items-center">
@@ -89,24 +94,73 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul
-          className={`hidden font-bold mt-1 md:flex space-x-6 ${
-            scrolled ? "text-gray-700" : "text-white"
+          className={`hidden font-bold mt-1 md:flex space-x-1 ${
+            scrolled ? "text-sky-700" : "text-sky-900"
           }`}
         >
           <li>
-            <a href="#" className="hover:underline">
+            <Link
+              to="/"
+              className={`py-1 px-2 hover:bg-red-400 hover:text-white ${
+                currentPath === "/" ? "bg-red-400 text-white " : ""
+              }`}
+            >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:underline">
-              About
-            </a>
+            <Link
+              to="/about"
+              className={`py-1 px-2 hover:bg-red-400 hover:text-white ${
+                currentPath === "/about" ? "bg-red-400 text-white " : ""
+              }`}
+            >
+              Tentang
+            </Link>
           </li>
           <li>
-            <a href="#" className="hover:underline">
-              Contact
-            </a>
+            <Link
+              to="/service"
+              className={`py-1 px-2 hover:bg-red-400 hover:text-white ${
+                currentPath === "/service"
+                  ? "bg-red-400 text-white "
+                  : ""
+              }`}
+            >
+              Layanan
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/galery"
+              className={`py-1 px-2 hover:bg-red-400 hover:text-white ${
+                currentPath === "/galery" ? "bg-red-400 text-white " : ""
+              }`}
+            >
+              Galeri
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/faq"
+              className={`py-1 px-2 hover:bg-red-400 hover:text-white ${
+                currentPath === "/faq" ? "bg-red-400 text-white " : ""
+              }`}
+            >
+              FAQ
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/contact"
+              className={`py-1 px-2 hover:bg-red-400 hover:text-white ${
+                currentPath === "/contact"
+                  ? "bg-red-400 text-white "
+                  : ""
+              }`}
+            >
+              Kontak
+            </Link>
           </li>
         </ul>
 
@@ -136,15 +190,24 @@ export default function Navbar() {
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <div className="md:hidden mt-4 bg-white rounded shadow-lg px-4 py-3 space-y-2 text-gray-800">
-          <a href="#" className="block">
+          <Link to="/" className="block">
             Home
-          </a>
-          <a href="#" className="block">
-            About
-          </a>
-          <a href="#" className="block">
-            Contact
-          </a>
+          </Link>
+          <Link to="/about" className="block">
+            Tentang
+          </Link>
+          <Link to="/service" className="block">
+            Layanan
+          </Link>
+          <Link to="/galery" className="block">
+            Galeri
+          </Link>
+          <Link to="/faq" className="block">
+            FAQ
+          </Link>
+          <Link to="/contact" className="block">
+            Kontak
+          </Link>
         </div>
       )}
     </nav>

@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 const CustomButton = ({
   to = "#",
   label = "Klik di sini",
-  bgColor = "bg-red-500",
-  textColor = "text-white",
   className = "",
   external = false, // jika true maka <a>, kalau false maka <Link>
 }) => {
-  const buttonClasses = `inline-block px-6 py-3 rounded-md font-semibold shadow-md transition duration-300 hover:opacity-90 ${bgColor} ${textColor} ${className}`;
+  const buttonClasses = `inline-block px-6 py-3 rounded-md font-semibold shadow-md transition duration-300 hover:opacity-90 ${className}`;
 
   if (external) {
     return (
