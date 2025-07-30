@@ -7,7 +7,7 @@ function App() {
       <Navbar />
       <div className="home-header h-[1000px] pt-[150px]">
         <div className="home text-2xl text-black">
-          Scroll ke bawah untuk lihat efek navbar
+          Home
           <button className="">Click</button>
         </div>
       </div>
