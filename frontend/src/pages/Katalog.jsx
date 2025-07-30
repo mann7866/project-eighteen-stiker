@@ -56,7 +56,7 @@ export default function KatalogPage() {
   return (
     <div className="bg-sky low-sky px-5 sm:px-7 md:px-6 lg:px-15">
       <div className="py-25 md:py-50">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-15">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-20">
           Galeri
         </h2>
 
@@ -103,30 +103,28 @@ export default function KatalogPage() {
         </div>
 
         {/* Gallery */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 px-4 sm:px-0">
-            {filteredData.map((item) => (
-              <div
-                key={item.id}
-                className="bg-white backdrop-blur-md rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all"
-              >
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  className="w-full h-36 sm:h-auto object-cover"
-                />
-                <div className="p-3 sm:p-4">
-                  <h3 className="text-sm sm:text-base font-semibold">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed">
-                    <strong>Ukuran:</strong> {item.size} <br />
-                    <strong>Warna:</strong> {item.color} <br />
-                    <strong>Bahan:</strong> {item.material}
-                  </p>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredData.map((item) => (
+            <div
+              key={item.id}
+              className="bg-white/40 backdrop-blur-md rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all"
+            >
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-full h-56 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <p className="text-sm text-gray-600">
+                  <strong>Ukuran:</strong> {item.size} <br />
+                  <strong>Warna:</strong> {item.color} <br />
+                  <strong>Bahan:</strong> {item.material}
+                </p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

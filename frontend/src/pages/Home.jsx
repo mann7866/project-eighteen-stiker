@@ -176,7 +176,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 py-2 px-4 sm:gap-6 sm:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-2 px-6">
           {products.map((item, index) => (
             <div
               key={index}
@@ -186,21 +186,17 @@ export default function HomePage() {
               <img
                 src={item.img}
                 alt={item.title}
-                className="w-full h-32 sm:h-auto object-cover"
+                className="w-full h-56 object-cover"
               />
 
               {/* Konten */}
-              <div className="p-3 sm:p-6">
-                <h3 className="text-sm sm:text-lg md:text-xl font-semibold mb-1 sm:mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-700 mb-2 sm:mb-3">
-                  {item.desc}
-                </p>
-                <p className="text-xs sm:text-sm">
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-700 mb-3">{item.desc}</p>
+                <p className="text-sm">
                   <span className="font-semibold">Ukuran:</span> {item.sizes}
                 </p>
-                <p className="text-xs sm:text-sm">
+                <p className="text-sm">
                   <span className="font-semibold">Harga Estimasi:</span>{" "}
                   {item.price}
                 </p>
@@ -208,17 +204,16 @@ export default function HomePage() {
 
               {/* Tombol muncul saat hover */}
               <div className="absolute inset-0 bg-sky-200/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-                <button className="bg-white text-sky-900 text-xs sm:text-sm px-3 sm:px-4 py-2 rounded-md shadow-lg hover:bg-sky-800 hover:text-white transition-all duration-300 cursor-pointer">
+                <button className="bg-white text-sky-900 px-4 py-2 rounded-md shadow-lg hover:bg-sky-800 hover:text-white transition-all duration-300 cursor-pointer">
                   Pesan Sekarang
                 </button>
               </div>
             </div>
           ))}
         </div>
-
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-15">
           <CustomButton
-            className="bg-gradient-to-br from-emerald-400 via-emerald-200 to-emerald-600 hover:from-emerald-600 hover:via-emerald-200 hover:to-emerald-400 text-white text-sm sm:text-base"
+            className="bg-gradient-to-br from-emerald-400 via-emerald-200 to-emerald-600 hover:from-emerald-600 hover:via-emerald-200 hover:to-emerald-400 text-white"
             label="Lihat Semua Layanan"
           />
         </div>
@@ -237,7 +232,7 @@ export default function HomePage() {
           </p>
 
           {/* Gallery */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 px-4 sm:px-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sampleData.map((item) => (
               <div
                 key={item.id}
@@ -246,13 +241,11 @@ export default function HomePage() {
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="w-full h-36 sm:h-auto object-cover"
+                  className="w-full h-56 object-cover"
                 />
-                <div className="p-3 sm:p-4">
-                  <h3 className="text-sm sm:text-base font-semibold">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed">
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold">{item.title}</h3>
+                  <p className="text-sm text-gray-600">
                     <strong>Ukuran:</strong> {item.size} <br />
                     <strong>Warna:</strong> {item.color} <br />
                     <strong>Bahan:</strong> {item.material}
@@ -261,13 +254,12 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-
-          <div className="flex justify-center mt-15">
-            <CustomButton
-              className="bg-gradient-to-br shadow-lg from-blue-400 via-blue-200 to-blue-600 hover:from-blue-600 hover:via-blue-200 hover:to-blue-400 text-white text-sm sm:text-base"
-              label="Lihat Semua Layanan"
-            />
-          </div>
+            <div className="flex justify-center mt-15">
+              <CustomButton
+                className="bg-gradient-to-br shadow-lg from-blue-400 via-blue-200 to-blue-600 hover:from-blue-600 hover:via-blue-200 hover:to-blue-400 text-white"
+                label="Lihat Semua Layanan"
+              />
+            </div>
         </div>
       </div>
 

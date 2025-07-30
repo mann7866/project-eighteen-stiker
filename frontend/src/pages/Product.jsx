@@ -42,45 +42,41 @@ const ProductsPage = () => {
         Produk & Layanan
       </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 py-2 px-4 sm:gap-6 sm:px-6">
-          {products.map((item, index) => (
-            <div
-              key={index}
-              className="group relative bg-white backdrop-blur-md rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-transform transform hover:scale-105"
-            >
-              {/* Gambar */}
-              <img
-                src={item.img}
-                alt={item.title}
-                className="w-full h-32 sm:h-auto object-cover"
-              />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+        {products.map((item, index) => (
+          <div
+            key={index}
+            className="group relative bg-white/30 backdrop-blur-md rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-transform transform hover:scale-105"
+          >
+            {/* Gambar */}
+            <img
+              src={item.img}
+              alt={item.title}
+              className="w-full h-56 object-cover"
+            />
 
-              {/* Konten */}
-              <div className="p-3 sm:p-6">
-                <h3 className="text-sm sm:text-lg md:text-xl font-semibold mb-1 sm:mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-700 mb-2 sm:mb-3">
-                  {item.desc}
-                </p>
-                <p className="text-xs sm:text-sm">
-                  <span className="font-semibold">Ukuran:</span> {item.sizes}
-                </p>
-                <p className="text-xs sm:text-sm">
-                  <span className="font-semibold">Harga Estimasi:</span>{" "}
-                  {item.price}
-                </p>
-              </div>
-
-              {/* Tombol muncul saat hover */}
-              <div className="absolute inset-0 bg-sky-200/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-                <button className="bg-white text-sky-900 text-xs sm:text-sm px-3 sm:px-4 py-2 rounded-md shadow-lg hover:bg-sky-800 hover:text-white transition-all duration-300 cursor-pointer">
-                  Pesan Sekarang
-                </button>
-              </div>
+            {/* Konten */}
+            <div className="p-6">
+              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+              <p className="text-sm text-gray-700 mb-3">{item.desc}</p>
+              <p className="text-sm">
+                <span className="font-semibold">Ukuran:</span> {item.sizes}
+              </p>
+              <p className="text-sm">
+                <span className="font-semibold">Harga Estimasi:</span>{" "}
+                {item.price}
+              </p>
             </div>
-          ))}
-        </div>
+
+            {/* Tombol muncul saat hover */}
+            <div className="absolute inset-0 bg-sky-200/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+              <button className="bg-white text-sky-900 px-4 py-2 rounded-md shadow-lg hover:bg-sky-800 hover:text-white transition-all duration-300 cursor-pointer">
+                Pesan Sekarang
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
       </div>
     </div>
   );
