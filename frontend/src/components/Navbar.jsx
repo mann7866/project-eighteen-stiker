@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 z-50 px-6 py-4 transition-all duration-300 w-full h-[80px] ${
-        scrolled ? "bg-white shadow-md text-black" : "bg-transparent text-black"
+        scrolled ? "bg-white/30  backdrop-blur-md shadow-md text-black" : "bg-transparent text-black"
       }`}
     >
       <div className="max-w-6xl mx-auto flex justify-between items-center">
@@ -44,7 +44,7 @@ export default function Navbar() {
     items-center z-50 overflow-hidden transition-all duration-700 ease-in-out
     ${
       scrolled
-        ? "bg-white text-black"
+        ? "bg-white shadow-md text-black"
         : "bg-gradient-to-br from-blue-600 via-white to-pink-400 text-white shadow-lg"
     }
     ${
