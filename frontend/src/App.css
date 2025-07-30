@@ -1,0 +1,44 @@
+:root {
+  --primary-color: #f6f8fd;
+  --secondary-color: #4f46e5;
+  --danger-color: #f33a3a;
+  --color-text: #231942;
+  --navbar-color: #ffffff;
+  --navbar-color-text: #000000;
+  --gradient-sticker: linear-gradient(135deg, #3b82f6, #ffffff, #ef4444);
+}
+
+.home-header {
+    background: var(--gradient-sticker);
+}
+
+.home {
+    margin-top: 150px;
+}
+
+nav {
+    width: 100%;
+}
+
+nav .title-text span{
+    color: #f6f6ff;
+}
+nav .title-text{
+    color: #fffcfc;
+}
+
+nav .title-background {
+    color: var(--danger-color);
+}
+nav .title-background span{
+    color: var(--secondary-color);
+}
+
+.text-stroke {
+  color: white;
+  text-shadow:
+    -1px -1px 0 rgb(85, 83, 255),
+     1px -1px 0 rgb(85, 83, 255),
+    -1px  1px 0 rgb(255, 83, 83),
+     1px  1px 0 rgb(255, 83, 83);
+}
