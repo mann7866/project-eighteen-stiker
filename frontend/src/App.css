@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #f6f8fd;
+  --primary-color: #7098fd;
   --secondary-color: #4f46e5;
   --danger-color: #f33a3a;
   --color-text: #231942;
@@ -8,12 +8,23 @@
   --gradient-sticker: linear-gradient(135deg, #3b82f6, #ffffff, #ef4444);
 }
 
+/* home */
 .home-header {
-    background: var(--gradient-sticker);
+  position: relative;
+  background: var(--gradient-sticker);
+  z-index: 1;
 }
 
-.home {
-    margin-top: 150px;
+.home-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px; /* tinggi area fading */
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  z-index: 2;
+  pointer-events: none;
 }
 
 nav {
@@ -42,3 +53,8 @@ nav .title-background span{
     -1px  1px 0 rgb(255, 83, 83),
      1px  1px 0 rgb(255, 83, 83);
 }
+
+nav .menu{
+    font-weight: bold;
+}
+
