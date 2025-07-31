@@ -1,4 +1,5 @@
 import logo from "../public/assets/images/logo/logo.png"
+
 export const products = [
   {
     title: "Stiker Produk UMKM",

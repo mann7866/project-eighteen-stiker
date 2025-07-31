@@ -134,7 +134,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-2 px-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 py-2 px-6">
           {products.map((item, index) => (
             <div
               key={index}
@@ -270,15 +270,11 @@ export default function HomePage() {
       {/* faq */}
       <div className="bg-sky">
         <div className="px-5 sm:px-7 md:px-6 lg:px-8 max-w-6xl mx-auto py-40">
-          <div 
-          
-           className="text-2xl sm:text-3xl font-bold text-center mb-10"
+          <div className="text-2xl sm:text-3xl font-bold text-center mb-10">
+            <h2
               data-aos="fade-in"
               data-aos-duration="1000"
               data-aos-once="true"
-              >
-            <h2
-             
             >
               Pertanyaan yang Sering Diajukan
             </h2>
@@ -293,7 +289,6 @@ export default function HomePage() {
                 data-aos-delay={item.delay}
                 data-aos-once="true"
                 className="border border-gray-200 rounded-lg shadow-md bg-white backdrop-blur-sm"
-                
               >
                 <button
                   onClick={() => toggleAccordion(item.id)}
@@ -324,7 +319,6 @@ export default function HomePage() {
         className="bg-sky low-sky"
         data-aos="zoom-in"
         data-aos-duration="1000"
-        data-aos-delay="1000"
         data-aos-once="true"
       >
         <div className=" px-5 sm:px-7 md:px-6 lg:px-15 py-12 max-w-5xl mx-auto">
