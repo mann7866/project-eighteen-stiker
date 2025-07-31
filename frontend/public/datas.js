@@ -95,12 +95,14 @@ export const faq = [
     {
       id: 1,
       eventKey: "0",
+      delay: "1200",
       title: "Bagaimana cara memesan stiker?",
       desc: "Anda dapat memesan stiker melalui formulir pemesanan atau WhatsApp kami.",
     },
     {
       id: 2,
       eventKey: "1",
+      delay: "1400",
       title: "Apakah bisa custom desain sendiri?",
       desc: "Tentu, kami menerima desain custom dari pelanggan sesuai keinginan.",
     },

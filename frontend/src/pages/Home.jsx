@@ -121,7 +121,6 @@ export default function HomePage() {
           className="py-20"
           data-aos="zoom-in-right"
           data-aos-duration="1000"
-          data-aos-delay="1000"
           data-aos-once="true"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-center bg-gradient-to-br from-blue-200 via-blue-400 to-blue-800 bg-clip-text text-transparent">
@@ -142,7 +141,7 @@ export default function HomePage() {
               className="group relative bg-white backdrop-blur-md rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-transform transform hover:scale-105"
               data-aos="zoom-in-right"
               data-aos-duration="1000"
-              data-aos-delay={index * 1000}
+              data-aos-delay={index * 1100}
               data-aos-once="true"
             >
               {/* Gambar */}
@@ -177,10 +176,11 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-        <div className="flex justify-center mt-15"
-        data-aos="zoom-in-right"
-              data-aos-duration="1000"
-              data-aos-once="true"
+        <div
+          className="flex justify-center mt-15"
+          data-aos="zoom-in-right"
+          data-aos-duration="1000"
+          data-aos-once="true"
         >
           <CustomButton
             to="/service"
@@ -192,17 +192,21 @@ export default function HomePage() {
 
       {/* galery */}
       <div className="bg-blue-300 mt-20 px-5 sm:px-7 md:px-6 lg:px-15">
-        <div
-          className="py-20"
-          data-aos="zoom-in-left"
-          data-aos-duration="1000"
-          data-aos-delay="100"
-          data-aos-once="true"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-5 text-white">
+        <div className="py-20">
+          <h2
+            className="text-3xl sm:text-4xl font-bold text-center mb-5 text-white"
+            data-aos="zoom-in-left"
+            data-aos-duration="1000"
+            data-aos-once="true"
+          >
             Galeri
           </h2>
-          <p className="max-w-2xl text-center mx-auto mb-10 text-white">
+          <p
+            className="max-w-2xl text-center mx-auto mb-10 text-white"
+            data-aos="zoom-in-left"
+            data-aos-duration="1000"
+            data-aos-once="true"
+          >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
             fugiat aut reprehenderit dolorum. Excepturi, modi. Nostrum nisi a
             dolorum perspiciatis possimus quod officiis dolorem earum?
@@ -266,12 +270,16 @@ export default function HomePage() {
       {/* faq */}
       <div className="bg-sky">
         <div className="px-5 sm:px-7 md:px-6 lg:px-8 max-w-6xl mx-auto py-40">
-          <div
-            data-aos="fade-in"
-            data-aos-duration="1000"
-            data-aos-once="true"
-          >
-            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-10">
+          <div 
+          
+           className="text-2xl sm:text-3xl font-bold text-center mb-10"
+              data-aos="fade-in"
+              data-aos-duration="1000"
+              data-aos-once="true"
+              >
+            <h2
+             
+            >
               Pertanyaan yang Sering Diajukan
             </h2>
           </div>
@@ -280,11 +288,12 @@ export default function HomePage() {
             {faq.map((item, index) => (
               <div
                 key={item.id}
-                className="border border-gray-200 rounded-lg shadow-md bg-white backdrop-blur-sm"
                 data-aos="fade-in"
-                data-aos-duration="1500"
-                data-aos-delay={index * 1200}
+                data-aos-duration="1000"
+                data-aos-delay={item.delay}
                 data-aos-once="true"
+                className="border border-gray-200 rounded-lg shadow-md bg-white backdrop-blur-sm"
+                
               >
                 <button
                   onClick={() => toggleAccordion(item.id)}
