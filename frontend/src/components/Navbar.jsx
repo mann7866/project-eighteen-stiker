@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import logo from "../../public/assets/images/logo/logo.png";
 import { Link, useLocation } from "react-router-dom";
 import CustomButton from "./ComponentsUi";
+import { ChevronUp, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
   const location = useLocation();
@@ -14,6 +15,7 @@ export default function Navbar() {
 
   // Cek apakah path sekarang cocok
   const isOtherActive = otherPaths.includes(currentPath);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -135,47 +137,58 @@ export default function Navbar() {
               Layanan
             </Link>
           </li>
-          <li className="relative group mr-5">
-            <button
-              className={`py-1 px-2 cursor-pointer hover:bg-red-400 hover:text-white ${
-                isOtherActive ? "bg-red-400 text-white" : ""
-              }`}
-            >
-              Lainnya
-            </button>
-            <ul className="absolute hidden group-hover:block bg-white text-sky-900 shadow-md mt-1 rounded-sm z-10 min-w-max">
-              <li>
-                <Link
-                  to="/galery"
-                  className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
-                    currentPath === "/galery" ? "bg-red-400 text-white" : ""
-                  }`}
-                >
-                  Galeri
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/faq"
-                  className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
-                    currentPath === "/faq" ? "bg-red-400 text-white" : ""
-                  }`}
-                >
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
-                    currentPath === "/contact" ? "bg-red-400 text-white" : ""
-                  }`}
-                >
-                  Kontak
-                </Link>
-              </li>
-            </ul>
-          </li>
+        <li className="relative mr-5">
+  <button
+    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+    className={`py-1 px-3 flex items-center gap-1 cursor-pointer transition-all duration-200
+      hover:bg-red-400 hover:text-white
+      ${isDropdownOpen ? "bg-red-400 text-white" : ""}
+    `}
+  >
+    Lainnya
+    <ChevronUp
+      className={`w-4 h-4 transition-transform duration-200 ${
+        isDropdownOpen ? "rotate-180" : ""
+      }`}
+    />
+  </button>
+
+  {isDropdownOpen && (
+    <ul className="absolute bg-white text-sky-900 shadow-md mt-1 rounded-sm z-10 min-w-max">
+      <li>
+        <Link
+          to="/galery"
+          className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
+            currentPath === "/galery" ? "bg-red-400 text-white" : ""
+          }`}
+        >
+          Galeri
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/faq"
+          className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
+            currentPath === "/faq" ? "bg-red-400 text-white" : ""
+          }`}
+        >
+          FAQ
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/contact"
+          className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
+            currentPath === "/contact" ? "bg-red-400 text-white" : ""
+          }`}
+        >
+          Kontak
+        </Link>
+      </li>
+    </ul>
+  )}
+</li>
+
           <li>
             <Link
               to="/order/now"

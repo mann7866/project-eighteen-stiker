@@ -43,7 +43,7 @@ const OrderNow = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-4 py-50">
+    <div className="max-w-xl mx-auto p-4 py-20 md:py-50">
       <h2 className="text-2xl font-bold text-center mb-4">Pesan Sekarang</h2>
 
       {/* Notifikasi pengiriman gambar */}

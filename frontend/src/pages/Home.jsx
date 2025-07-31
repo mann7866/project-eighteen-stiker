@@ -121,12 +121,14 @@ export default function HomePage() {
               </p>
               <div className="flex items-center sm:gap-4 gap-2">
                 <CustomButton
+                to="/order/now"
                   label="Pesan Sekarang"
                   className="bg-gradient-to-br shadow-lg shadow-blue-300 from-blue-600 via-blue-200 to-blue-800 hover:from-blue-800 hover:via-blue-200 hover:to-blue-600 text-white"
                 />
                 <CustomButton
+                to="/service"
                   className="bg-gradient-to-br shadow-lg shadow-red-200 from-red-400 via-red-200 to-red-700 hover:from-red-700 hover:via-red-200 hover:to-red-400 text-white"
-                  label="Lihat Produk"
+                  label="Lihat Layanan"
                 />
               </div>
             </div>
@@ -224,6 +226,7 @@ export default function HomePage() {
         </div>
         <div className="flex justify-center mt-15">
           <CustomButton
+          to="/service"
             className="bg-gradient-to-br from-emerald-400 via-emerald-200 to-emerald-600 hover:from-emerald-600 hover:via-emerald-200 hover:to-emerald-400 text-white"
             label="Lihat Semua Layanan"
           />
@@ -267,8 +270,9 @@ export default function HomePage() {
           </div>
             <div className="flex justify-center mt-15">
               <CustomButton
+                to="/galery"
                 className="bg-gradient-to-br shadow-lg from-blue-400 via-blue-200 to-blue-600 hover:from-blue-600 hover:via-blue-200 hover:to-blue-400 text-white"
-                label="Lihat Semua Layanan"
+                label="Lihat galeri"
               />
             </div>
         </div>
