@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import FormContact from "../components/FormContact";
+import { ArrowBigRight, ArrowBigRightDash } from "lucide-react";
 
 export default function HomePage() {
   const [openId, setOpenId] = useState(null);
@@ -184,8 +185,9 @@ export default function HomePage() {
         >
           <CustomButton
             to="/service"
-            className="bg-gradient-to-br from-emerald-400 via-emerald-200 to-emerald-600 hover:from-emerald-600 hover:via-emerald-200 hover:to-emerald-400 text-white"
+            className="bg-gradient-to-br flex gap-2 items-center from-emerald-400 via-emerald-200 to-emerald-600 hover:from-emerald-600 hover:via-emerald-200 hover:to-emerald-400 text-white"
             label="Lihat Semua Layanan"
+            icone={<ArrowBigRightDash size={20}/>}
           />
         </div>
       </div>
@@ -259,8 +261,9 @@ export default function HomePage() {
             data-aos-once="true"
           >
             <CustomButton
+              icone={<ArrowBigRight size={20} />}
               to="/galery"
-              className="bg-gradient-to-br shadow-lg from-blue-400 via-blue-200 to-blue-600 hover:from-blue-600 hover:via-blue-200 hover:to-blue-400 text-white"
+              className="bg-gradient-to-br shadow-lg flex gap-2 from-blue-400 via-blue-200 to-blue-600 hover:from-blue-600 hover:via-blue-200 hover:to-blue-400 text-white"
               label="Lihat galeri"
             />
           </div>

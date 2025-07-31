@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import logo from "../../public/assets/images/logo/logo.png";
 import { Link, useLocation } from "react-router-dom";
 import CustomButton from "./ComponentsUi";
-import { ChevronUp, ChevronDown } from "lucide-react";
+import { ChevronUp, ChevronDown, ShoppingBag } from "lucide-react";
 
 export default function Navbar() {
   const location = useLocation();
@@ -30,7 +30,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 z-50 px-6 py-4 transition-all duration-300 w-full h-[80px] ${
         scrolled
-          ? "bg-white/30  backdrop-blur-md shadow-md text-black"
+          ? "bg-sky backdrop-blur-md shadow-md text-black"
           : "bg-transparent text-black"
       }`}
     >
@@ -50,58 +50,47 @@ export default function Navbar() {
           </h1>
         </div>
 
-        {/* Middle Floating Logo (Desktop Only) */}
         <div
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          className={`group hidden md:flex absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2
-    items-center z-50 overflow-hidden transition-all duration-700 ease-in-out
+          className={`
+    group hidden md:flex absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2
+    z-50 h-20 items-center overflow-hidden rounded-full transition-all duration-500 ease-in-out
     ${
       scrolled
         ? "bg-sky shadow-md text-black"
         : "bg-gradient-to-br from-blue-600 via-white to-pink-400 text-white shadow-lg"
     }
-    ${
-      hovered
-        ? "w-48 px-4 h-20 rounded-full justify-start"
-        : "w-20 h-20 rounded-full justify-center"
-    }
+    ${hovered ? "w-56 px-4 justify-start" : "w-20 justify-center"}
   `}
         >
-          {/* Logo Awal – akan menghilang dengan animasi pelan & pendek */}
+          {/* Logo tetap satu */}
           <img
             src={logo}
             alt="Logo"
-            className={`w-10 h-10 object-contain absolute transition-all duration-900 ease-in-out
-      ${hovered ? "opacity-0 translate-x-[-6px]" : "opacity-100 translate-x-0"}
-    `}
+            className="w-10 h-10 object-contain flex-shrink-0"
           />
 
-          {/* Logo + Teks Hover */}
+          {/* Teks muncul saat hover */}
           <div
-            className={`flex items-center transition-all duration-700 ease-in-out
-      ${hovered ? "opacity-100 translate-x-0" : "opacity-0 translate-x-2"}
+            className={`
+      overflow-hidden transition-all duration-500 ease-in-out
+      ${hovered ? "max-w-xs ml-2 opacity-100" : "max-w-0 ml-0 opacity-0"}
     `}
           >
-            <img
-              src={logo}
-              alt="Logo"
-              className="w-10 h-10 object-contain mr-0"
-            />
-            <span className="whitespace-nowrap font-bold">
+            <div className="font-bold inline-block">
               <div className="relative inline-block md:block">
                 <h1 className="text-md font-bold relative z-10 text-stroke title-text">
                   <span className="">Eighteen</span>Sticker
                 </h1>
-                <h1 className="text-md font-bold absolute top-0 left-0 z-0 title-background blur-sm">
+                <h1 className="text-md font-bold absolute top-0 left-0 z-0">
                   <span>Eighteen</span>Sticker
                 </h1>
               </div>
-            </span>
+            </div>
           </div>
         </div>
 
-        {/* Desktop Menu */}
         <ul
           className={`hidden font-bold mt-1 lg:flex space-x-1 items-center ${
             scrolled ? "text-sky-700" : "text-sky-900"
@@ -137,66 +126,78 @@ export default function Navbar() {
               Layanan
             </Link>
           </li>
-        <li className="relative mr-5">
-  <button
-    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-    className={`py-1 px-3 flex items-center gap-1 cursor-pointer transition-all duration-200
+          <li className="relative mr-5">
+            <button
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className={`py-1 px-3 flex items-center gap-1 cursor-pointer transition-all duration-200
       hover:bg-red-400 hover:text-white
       ${isDropdownOpen ? "bg-red-400 text-white" : ""}
     `}
-  >
-    Lainnya
-    <ChevronUp
-      className={`w-4 h-4 transition-transform duration-200 ${
-        isDropdownOpen ? "rotate-180" : ""
-      }`}
-    />
-  </button>
+            >
+              Lainnya
+              <ChevronUp
+                className={`w-4 h-4 transition-transform duration-200 ${
+                  isDropdownOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
 
-  {isDropdownOpen && (
-    <ul className="absolute bg-white text-sky-900 shadow-md mt-1 rounded-sm z-10 min-w-max">
-      <li>
-        <Link
-          to="/galery"
-          className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
-            currentPath === "/galery" ? "bg-red-400 text-white" : ""
-          }`}
-        >
-          Galeri
-        </Link>
-      </li>
-      <li>
-        <Link
-          to="/faq"
-          className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
-            currentPath === "/faq" ? "bg-red-400 text-white" : ""
-          }`}
-        >
-          FAQ
-        </Link>
-      </li>
-      <li>
-        <Link
-          to="/contact"
-          className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
-            currentPath === "/contact" ? "bg-red-400 text-white" : ""
-          }`}
-        >
-          Kontak
-        </Link>
-      </li>
-    </ul>
-  )}
-</li>
+            {isDropdownOpen && (
+              <ul className="absolute bg-white text-sky-900 shadow-md mt-1 rounded-sm z-10 min-w-max">
+                <li>
+                  <Link
+                    to="/galery"
+                    className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
+                      currentPath === "/galery" ? "bg-red-400 text-white" : ""
+                    }`}
+                  >
+                    Galeri
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/faq"
+                    className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
+                      currentPath === "/faq" ? "bg-red-400 text-white" : ""
+                    }`}
+                  >
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/contact"
+                    className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
+                      currentPath === "/contact" ? "bg-red-400 text-white" : ""
+                    }`}
+                  >
+                    Kontak
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </li>
 
-          <li>
+          <li className="group flex items-center">
             <Link
               to="/order/now"
-              className={`py-1 px-2 border border-sky-500 hover:bg-sky-500 hover:text-white ${
-                currentPath === "/order/now" ? "bg-sky-500 text-white " : ""
-              }`}
+              className={`
+      flex items-center gap-2 px-3 py-2 border border-sky-500 rounded-md overflow-hidden transition-all duration-300
+      hover:bg-sky-500 hover:text-white
+      ${currentPath === "/order/now" ? "bg-sky-500 text-white" : "text-sky-500"}
+    `}
             >
-              Pesan Sekarang
+              <ShoppingBag size={22} className="flex-shrink-0" />
+
+              {/* Text muncul saat hover */}
+              <span
+                className={`
+        max-w-0 overflow-hidden whitespace-nowrap transition-all duration-500
+        group-hover:max-w-xs group-hover:ml-1
+      `}
+              >
+                Pesan Sekarang
+              </span>
             </Link>
           </li>
         </ul>
