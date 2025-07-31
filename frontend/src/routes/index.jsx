@@ -7,6 +7,7 @@ import FaqPage from "../pages/Faq";
 import ContactPage from "../pages/Contact";
 import FooterComponent from "../components/Footer";
 import Navbar from "../components/Navbar";
+import OrderNow from "../pages/OrderNow";
 
 function AppRoutes() {
   return (
@@ -20,6 +21,7 @@ function AppRoutes() {
         <Route path="/galery" element={<KatalogPage />} />
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/order/now" element={<OrderNow />} />
       </Routes>
       
       <FooterComponent />

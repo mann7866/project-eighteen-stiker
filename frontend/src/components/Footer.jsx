@@ -52,18 +52,18 @@ const FooterComponent = () => {
               </Link>
             </li>
             <li>
-              <Link to="/produk" className="hover:underline">
+              <Link to="/about" className="hover:underline">
                 Tentang
               </Link>
             </li>
             <li>
-              <Link to="/testimonial" className="hover:underline">
+              <Link to="/service" className="hover:underline">
                 Layanan
               </Link>
             </li>
             <li>
-              <Link to="/faq" className="hover:underline">
-                Gakeri
+              <Link to="/galery" className="hover:underline">
+                Galeri
               </Link>
             </li>
             <li>
@@ -72,7 +72,7 @@ const FooterComponent = () => {
               </Link>
             </li>
             <li>
-              <Link to="/terms" className="hover:underline">
+              <Link to="/contact" className="hover:underline">
                 Kontak
               </Link>
             </li>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import logo from "../../public/assets/images/logo/logo.png";
 import { Link, useLocation } from "react-router-dom";
+import CustomButton from "./ComponentsUi";
 
 export default function Navbar() {
   const location = useLocation();
@@ -8,6 +9,12 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
+  // Buat array daftar path untuk menu "Lainnya"
+  const otherPaths = ["/galery", "/faq", "/contact", "/pesan"];
+
+  // Cek apakah path sekarang cocok
+  const isOtherActive = otherPaths.includes(currentPath);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -49,7 +56,7 @@ export default function Navbar() {
     items-center z-50 overflow-hidden transition-all duration-700 ease-in-out
     ${
       scrolled
-        ? "bg-white shadow-md text-black"
+        ? "bg-sky shadow-md text-black"
         : "bg-gradient-to-br from-blue-600 via-white to-pink-400 text-white shadow-lg"
     }
     ${
@@ -94,7 +101,7 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul
-          className={`hidden font-bold mt-1 md:flex space-x-1 ${
+          className={`hidden font-bold mt-1 lg:flex space-x-1 items-center ${
             scrolled ? "text-sky-700" : "text-sky-900"
           }`}
         >
@@ -122,50 +129,66 @@ export default function Navbar() {
             <Link
               to="/service"
               className={`py-1 px-2 hover:bg-red-400 hover:text-white ${
-                currentPath === "/service"
-                  ? "bg-red-400 text-white "
-                  : ""
+                currentPath === "/service" ? "bg-red-400 text-white " : ""
               }`}
             >
               Layanan
             </Link>
           </li>
-          <li>
-            <Link
-              to="/galery"
-              className={`py-1 px-2 hover:bg-red-400 hover:text-white ${
-                currentPath === "/galery" ? "bg-red-400 text-white " : ""
+          <li className="relative group mr-5">
+            <button
+              className={`py-1 px-2 cursor-pointer hover:bg-red-400 hover:text-white ${
+                isOtherActive ? "bg-red-400 text-white" : ""
               }`}
             >
-              Galeri
-            </Link>
+              Lainnya
+            </button>
+            <ul className="absolute hidden group-hover:block bg-white text-sky-900 shadow-md mt-1 rounded-sm z-10 min-w-max">
+              <li>
+                <Link
+                  to="/galery"
+                  className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
+                    currentPath === "/galery" ? "bg-red-400 text-white" : ""
+                  }`}
+                >
+                  Galeri
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/faq"
+                  className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
+                    currentPath === "/faq" ? "bg-red-400 text-white" : ""
+                  }`}
+                >
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
+                    currentPath === "/contact" ? "bg-red-400 text-white" : ""
+                  }`}
+                >
+                  Kontak
+                </Link>
+              </li>
+            </ul>
           </li>
           <li>
             <Link
-              to="/faq"
-              className={`py-1 px-2 hover:bg-red-400 hover:text-white ${
-                currentPath === "/faq" ? "bg-red-400 text-white " : ""
+              to="/order/now"
+              className={`py-1 px-2 border border-sky-500 hover:bg-sky-500 hover:text-white ${
+                currentPath === "/order/now" ? "bg-sky-500 text-white " : ""
               }`}
             >
-              FAQ
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/contact"
-              className={`py-1 px-2 hover:bg-red-400 hover:text-white ${
-                currentPath === "/contact"
-                  ? "bg-red-400 text-white "
-                  : ""
-              }`}
-            >
-              Kontak
+              Pesan Sekarang
             </Link>
           </li>
         </ul>
-
         {/* Hamburger Menu Button (Mobile) */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="focus:outline-none"
@@ -189,7 +212,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div className="md:hidden mt-4 bg-white rounded shadow-lg px-4 py-3 space-y-2 text-gray-800">
+        <div className="lg:hidden mt-4 bg-white rounded shadow-lg px-4 py-3 space-y-2 text-gray-800">
           <Link to="/" className="block">
             Home
           </Link>
@@ -207,6 +230,9 @@ export default function Navbar() {
           </Link>
           <Link to="/contact" className="block">
             Kontak
+          </Link>
+          <Link to="/order/now" className="block">
+            Pesan Sekarang
           </Link>
         </div>
       )}

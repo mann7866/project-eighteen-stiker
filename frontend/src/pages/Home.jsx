@@ -2,6 +2,8 @@ import logo from "../../public/assets/images/logo/logo.png";
 import CustomButton from ".././components/ComponentsUi";
 import React, { useState, useEffect } from "react";
 import AboutPage from "./About";
+import PesanSekarang from "./OrderNow";
+import { useNavigate } from "react-router-dom";
 export default function HomePage() {
   const sampleData = [
     {
@@ -89,6 +91,12 @@ export default function HomePage() {
 
     return () => clearInterval(cycle);
   }, []);
+
+   const navigate = useNavigate();
+
+  const handleOrderClick = (type) => {
+    navigate(`/order/now?type=${type}`);
+  };
 
   const toggleAccordion = (id) => {
     setOpenId(openId === id ? null : id);
@@ -204,7 +212,10 @@ export default function HomePage() {
 
               {/* Tombol muncul saat hover */}
               <div className="absolute inset-0 bg-sky-200/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-                <button className="bg-white text-sky-900 px-4 py-2 rounded-md shadow-lg hover:bg-sky-800 hover:text-white transition-all duration-300 cursor-pointer">
+                  <button
+                  onClick={() => handleOrderClick("Stiker")} // Asumsikan semua produk di list adalah Stiker, bisa sesuaikan
+                  className="bg-white text-sky-900 px-4 py-2 rounded-md shadow-lg hover:bg-sky-800 hover:text-white transition-all duration-300 cursor-pointer"
+                >
                   Pesan Sekarang
                 </button>
               </div>
@@ -347,6 +358,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
     </>
   );
 }
