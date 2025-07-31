@@ -1,47 +1,38 @@
-import { useState } from "react";
-import logo from "../../public/assets/images/logo/logo.png";
-
-const sampleData = [
-  {
-    id: 1,
-    title: "Stiker Produk UMKM",
-    category: "UMKM",
-    size: "Small",
-    color: "White",
-    material: "Vinyl",
-    img: logo,
-  },
-  {
-    id: 2,
-    title: "Stiker Promosi Event",
-    category: "Promosi",
-    size: "Medium",
-    color: "Colorful",
-    material: "Glossy",
-    img: logo,
-  },
-  {
-    id: 3,
-    title: "Stiker Dinding Kantor",
-    category: "Dekorasi",
-    size: "Large",
-    color: "Black",
-    material: "Matte",
-    img: logo,
-  },
-  // ...tambahkan lebih banyak data
-];
+import { useState, useEffect } from "react";
+import { katalogDatas } from "../../public/datas";
 
 const unique = (arr, key) => [...new Set(arr.map((item) => item[key]))];
 
 export default function KatalogPage() {
   const [filters, setFilters] = useState({ size: "", color: "", material: "" });
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
-  const sizes = unique(sampleData, "size");
-  const colors = unique(sampleData, "color");
-  const materials = unique(sampleData, "material");
+  const sizes = unique(katalogDatas, "size");
+  const colors = unique(katalogDatas, "color");
+  const materials = unique(katalogDatas, "material");
 
-  const filteredData = sampleData.filter((item) => {
+  const handleChange = (e) => {
+    setFilters({ ...filters, [e.target.name]: e.target.value });
+    setCurrentPage(1); // Reset ke halaman 1 jika filter berubah
+  };
+
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setItemsPerPage(5);
+      } else {
+        setItemsPerPage(10);
+      }
+    };
+
+    updateItemsPerPage();
+    window.addEventListener("resize", updateItemsPerPage);
+    return () => window.removeEventListener("resize", updateItemsPerPage);
+  }, []);
+
+  const filteredData = katalogDatas.filter((item) => {
     return (
       (filters.size === "" || item.size === filters.size) &&
       (filters.color === "" || item.color === filters.color) &&
@@ -49,9 +40,9 @@ export default function KatalogPage() {
     );
   });
 
-  const handleChange = (e) => {
-    setFilters({ ...filters, [e.target.name]: e.target.value });
-  };
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentItems = filteredData.slice(startIndex, startIndex + itemsPerPage);
 
   return (
     <div className="bg-sky low-sky px-5 sm:px-7 md:px-6 lg:px-15">
@@ -102,17 +93,17 @@ export default function KatalogPage() {
           </select>
         </div>
 
-        {/* Gallery */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredData.map((item) => (
+        {/* Gallery Pinterest Style */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+          {currentItems.map((item) => (
             <div
               key={item.id}
-              className="bg-white/40 backdrop-blur-md rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all"
+              className="break-inside-avoid bg-white/40 backdrop-blur-md rounded-lg shadow-lg hover:shadow-2xl transition-all overflow-hidden"
             >
               <img
                 src={item.img}
                 alt={item.title}
-                className="w-full h-56 object-cover"
+                className="w-full object-cover"
               />
               <div className="p-4">
                 <h3 className="text-lg font-semibold">{item.title}</h3>
@@ -125,6 +116,25 @@ export default function KatalogPage() {
             </div>
           ))}
         </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex justify-center mt-10 gap-2 flex-wrap">
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i}
+                className={`px-3 py-1 rounded text-sm ${
+                  currentPage === i + 1
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                }`}
+                onClick={() => setCurrentPage(i + 1)}
+              >
+                {i + 1}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,23 +1,8 @@
 import React, { useState } from "react";
+import { faq } from "../../public/datas";
 
 const FaqPage = () => {
   const [openId, setOpenId] = useState(null);
-
-  const faq = [
-    {
-      id: 1,
-      eventKey: "0",
-      title: "Bagaimana cara memesan stiker?",
-      desc: "Anda dapat memesan stiker melalui formulir pemesanan atau WhatsApp kami.",
-    },
-    {
-      id: 2,
-      eventKey: "1",
-      title: "Apakah bisa custom desain sendiri?",
-      desc: "Tentu, kami menerima desain custom dari pelanggan sesuai keinginan.",
-    },
-  ];
-
   const toggleAccordion = (id) => {
     setOpenId(openId === id ? null : id);
   };

@@ -1,38 +1,7 @@
-import React from "react";
-import logo from "../../public/assets/images/logo/logo.png";
-import CustomButton from "../components/ComponentsUi";
+
 import { useNavigate } from "react-router-dom";
 // Ganti dengan gambar nyata nantinya
-const products = [
-  {
-    title: "Stiker Produk UMKM",
-    desc: "Label untuk botol, makanan, dan kosmetik. Tahan air dan elegan.",
-    img: logo, // sesuaikan
-    sizes: "2x5cm, 4x6cm, custom",
-    price: "Mulai Rp25.000 / 50pcs",
-  },
-  {
-    title: "Stiker Promosi",
-    desc: "Cocok untuk branding event, seminar, dan kampanye iklan.",
-    img: logo,
-    sizes: "5x5cm, A6, A5, custom",
-    price: "Mulai Rp30.000 / 100pcs",
-  },
-  {
-    title: "Stiker Custom",
-    desc: "Buat desain sesukamu: karakter, nama, atau logo brand pribadi.",
-    img: logo,
-    sizes: "Bebas (custom shape & size)",
-    price: "Harga menyesuaikan desain",
-  },
-  //   {
-  //     title: "Stiker Dinding & Dekorasi",
-  //     desc: "Untuk dekor rumah dan kantor agar lebih hidup & estetik.",
-  //     img: logo,
-  //     sizes: "A3, A2, custom",
-  //     price: "Mulai Rp50.000 / set",
-  //   },
-];
+import { products } from "../../public/datas";
 
 const ProductsPage = () => {
   const navigate = useNavigate();
@@ -57,7 +26,7 @@ const ProductsPage = () => {
               <img
                 src={item.img}
                 alt={item.title}
-                className="w-full h-56 object-cover"
+                className="w-full h-auto object-cover"
               />
 
               {/* Konten */}
@@ -76,7 +45,7 @@ const ProductsPage = () => {
               {/* Tombol muncul saat hover */}
               <div className="absolute inset-0 bg-sky-200/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
                 <button
-                  onClick={() => handleOrderClick("Stiker")} // Asumsikan semua produk di list adalah Stiker, bisa sesuaikan
+                  onClick={() => handleOrderClick(item.type)} // Asumsikan semua produk di list adalah Stiker, bisa sesuaikan
                   className="bg-white text-sky-900 px-4 py-2 rounded-md shadow-lg hover:bg-sky-800 hover:text-white transition-all duration-300 cursor-pointer"
                 >
                   Pesan Sekarang
