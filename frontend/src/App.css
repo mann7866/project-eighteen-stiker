@@ -135,6 +135,15 @@ nav .menu{
   backface-visibility: hidden;
 }
 
+/* Responsive: ukuran lebih kecil di layar <= 640px */
+@media (max-width: 640px) {
+  .logo-loader {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+
 /* animate */
 
 /* no 1 */
