@@ -182,8 +182,8 @@ export default function HomePage() {
             slidesPerView={2} // <-- default untuk ukuran kecil (misal HP)
             breakpoints={{
               640: { slidesPerView: 2 }, // untuk ukuran >= 640px
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
+              768: { slidesPerView: 3 },
+              1024: { slidesPerView: 4 },
             }}
             className="my-10"
           >
