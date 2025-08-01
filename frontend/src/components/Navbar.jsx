@@ -208,7 +208,7 @@ export default function Navbar() {
             className="focus:outline-none"
           >
             <svg
-              className={`w-6 h-6 ${scrolled ? "text-gray-700" : "text-white"}`}
+              className={`w-6 h-6 ${scrolled ? "text-gray-700" : "text-gray-400"}`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
