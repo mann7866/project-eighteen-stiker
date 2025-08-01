@@ -25,6 +25,7 @@ function AppRoutes() {
       </Routes>
       
       <FooterComponent />
+      
     </div>
   );
 }

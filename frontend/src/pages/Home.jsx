@@ -9,6 +9,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import FormContact from "../components/FormContact";
 import { ArrowBigRight, ArrowBigRightDash } from "lucide-react";
+import ProductList from "../components/ProductList";
 
 export default function HomePage() {
   const [openId, setOpenId] = useState(null);
@@ -135,48 +136,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-2 p-4">
-          {products.map((item, index) => (
-            <div
-              key={index}
-              className="group relative bg-white backdrop-blur-md rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-transform transform hover:scale-105"
-              data-aos="zoom-in-right"
-              data-aos-duration="1000"
-              data-aos-delay={index * 1100}
-              data-aos-once="true"
-            >
-              {/* Gambar */}
-              <img
-                src={item.img}
-                alt={item.title}
-                className="w-full h-auto object-cover"
-              />
-
-              {/* Konten */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-700 mb-3">{item.desc}</p>
-                <p className="text-sm">
-                  <span className="font-semibold">Ukuran:</span> {item.sizes}
-                </p>
-                <p className="text-sm">
-                  <span className="font-semibold">Harga Estimasi:</span>{" "}
-                  {item.price}
-                </p>
-              </div>
-
-              {/* Tombol muncul saat hover */}
-              <div className="absolute inset-0 bg-sky-200/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-                <button
-                  onClick={() => handleOrderClick(item.type)} // Asumsikan semua produk di list adalah Stiker, bisa sesuaikan
-                  className="bg-white text-sky-900 px-4 py-2 rounded-md shadow-lg hover:bg-sky-800 hover:text-white transition-all duration-300 cursor-pointer"
-                >
-                  Pesan Sekarang
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+        <ProductList/>
         <div
           className="flex justify-center mt-15"
           data-aos="zoom-in-right"
