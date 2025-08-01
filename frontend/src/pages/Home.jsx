@@ -65,7 +65,7 @@ export default function HomePage() {
                 />
               </div>
             </div>
-            <div className="animate__animated animate__fadeInUp animate__delay-1.5s">
+            <div className="animate__animated animate__fadeInUp animate__delay-3s">
               <img
                 loading="lazy"
                 src={logo}
