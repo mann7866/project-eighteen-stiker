@@ -110,7 +110,7 @@ export default function HomePage() {
                 loading="lazy"
                 src={logo}
                 alt="Hero"
-                className={`w-full rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl ${animation}`}
+                className={`w-full rounded-lg transition-all duration-300 hover:scale-105 ${animation}`}
               />
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <ProductList/>
+        <ProductList />
         <div
           className="flex justify-center mt-15"
           data-aos="zoom-in-right"
@@ -147,7 +147,7 @@ export default function HomePage() {
             to="/service"
             className="bg-gradient-to-br flex gap-2 items-center from-emerald-400 via-emerald-200 to-emerald-600 hover:from-emerald-600 hover:via-emerald-200 hover:to-emerald-400 text-white"
             label="Lihat Semua Layanan"
-            icone={<ArrowBigRightDash size={20}/>}
+            icone={<ArrowBigRightDash size={20} />}
           />
         </div>
       </div>
@@ -178,10 +178,10 @@ export default function HomePage() {
           <Swiper
             modules={[Navigation]}
             navigation
-            spaceBetween={20}
-            slidesPerView={1}
+            spaceBetween={16}
+            slidesPerView={2} // <-- default untuk ukuran kecil (misal HP)
             breakpoints={{
-              640: { slidesPerView: 1 },
+              640: { slidesPerView: 2 }, // untuk ukuran >= 640px
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
@@ -255,7 +255,7 @@ export default function HomePage() {
               >
                 <button
                   onClick={() => toggleAccordion(item.id)}
-                  className="w-full text-left px-6 py-4 font-medium text-lg flex justify-between items-center hover:bg-gray-100 transition"
+                  className="w-full text-left px-6 py-4 font-medium text-sm md:text-lg flex justify-between items-center hover:bg-gray-100 transition"
                 >
                   {item.title}
                   <span className="ml-4 text-gray-500">
