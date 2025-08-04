@@ -121,15 +121,22 @@ export default function HomePage() {
       <div className="bg-sky px-5 sm:px-7 md:px-6 lg:px-15 py-0 max-w-7xl mx-auto">
         <div
           className="py-20"
-          data-aos="zoom-in-right"
+         
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold text-center bg-gradient-to-br from-blue-200 via-blue-400 to-blue-800 bg-clip-text text-transparent"
+           data-aos="zoom-in-right"
           data-aos-duration="1000"
           data-aos-once="true"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold text-center bg-gradient-to-br from-blue-200 via-blue-400 to-blue-800 bg-clip-text text-transparent">
+          >
             Produk & Layanan
           </h2>
 
-          <p className=" max-w-2xl text-center mx-auto mt-4">
+          <p className=" max-w-2xl text-center mx-auto mt-4"
+           data-aos="zoom-in-right"
+          data-aos-duration="1000"
+          data-aos-delay="500"
+          data-aos-once="true"
+          >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
             fugiat aut reprehenderit dolorum. Excepturi, modi. Nostrum nisi a
             dolorum perspiciatis possimus quod officiis dolorem earum?

@@ -15,11 +15,16 @@ const ProductList = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-2 sm:px-4">
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-2 sm:px-4"
+    >
       {products.map((item, index) => (
         <div
           key={index}
           className="group relative z-0 hover:z-10 bg-white/30 backdrop-blur-md rounded-lg shadow-md overflow-visible transition-all transform hover:scale-105"
+          data-aos="zoom-in-right"
+          data-aos-duration="1000"
+          data-aos-delay={index * 1000}
+          data-aos-once="true"
         >
           {/* Gambar */}
           <img

@@ -11,7 +11,11 @@ const FaqPage = () => {
     <div className="bg-sky low-sky">
        <div className="px-5 sm:px-7 md:px-6 max-w-6xl lg:px-8 mx-auto">
       <div className="py-25 md:py-50">
-      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-20">
+      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-20"
+       data-aos="fade-in"
+              data-aos-duration="1000"
+              data-aos-once="true"
+              >
         Pertanyaan yang Sering Diajukan
       </h2>
 
@@ -19,6 +23,10 @@ const FaqPage = () => {
         {faq.map((item) => (
           <div
             key={item.id}
+            data-aos="fade-in"
+                data-aos-duration="1000"
+                data-aos-delay={item.delay}
+                data-aos-once="true"
             className="border border-gray-200 rounded-lg shadow-md bg-white backdrop-blur-sm"
           >
             <button

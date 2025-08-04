@@ -7,7 +7,8 @@ export const products = [
     img: logo, // sesuaikan
     sizes: "2x5cm, 4x6cm, custom",
     price: "Mulai Rp25.000 / 50pcs",
-    type: "Stiker"
+    type: "Stiker",
+    delay: 1400
   },
   {
     title: "Stiker Promosi",
@@ -15,7 +16,8 @@ export const products = [
     img: logo,
     sizes: "5x5cm, A6, A5, custom",
     price: "Mulai Rp30.000 / 100pcs",
-    type: "Stiker"
+    type: "Stiker",
+    delay: 1400
   },
   {
     title: "Stiker Custom",
@@ -23,7 +25,8 @@ export const products = [
     img: logo,
     sizes: "Bebas (custom shape & size)",
     price: "Harga menyesuaikan desain",
-    type: "Stiker"
+    type: "Stiker",
+    delay: 1500
   },
   //   {
   //     title: "Stiker Dinding & Dekorasi",

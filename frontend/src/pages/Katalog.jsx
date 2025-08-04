@@ -42,18 +42,29 @@ export default function KatalogPage() {
 
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentItems = filteredData.slice(startIndex, startIndex + itemsPerPage);
+  const currentItems = filteredData.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
   return (
     <div className="bg-sky low-sky px-5 sm:px-7 md:px-6 lg:px-15">
       <div className="py-25 md:py-50">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-20">
+        <h2
+          className="text-3xl sm:text-4xl font-bold text-center mb-20"
+          data-aos="zoom-in-right"
+          data-aos-duration="1000"
+          data-aos-once="true"
+        >
           Galeri
         </h2>
 
         {/* Filter */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           <select
+            data-aos="zoom-in-right"
+            data-aos-duration="1000"
+            data-aos-once="true"
             name="size"
             onChange={handleChange}
             className="p-2 border rounded bg-white"
@@ -67,6 +78,9 @@ export default function KatalogPage() {
           </select>
 
           <select
+            data-aos="zoom-in-right"
+            data-aos-duration="1000"
+            data-aos-once="true"
             name="color"
             onChange={handleChange}
             className="p-2 border rounded bg-white"
@@ -80,6 +94,9 @@ export default function KatalogPage() {
           </select>
 
           <select
+            data-aos="zoom-in-right"
+            data-aos-duration="1000"
+            data-aos-once="true"
             name="material"
             onChange={handleChange}
             className="p-2 border rounded bg-white"
@@ -95,8 +112,12 @@ export default function KatalogPage() {
 
         {/* Gallery Pinterest Style */}
         <div className="columns-2 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-          {currentItems.map((item) => (
+          {currentItems.map((item, index) => (
             <div
+            data-aos="zoom-in-right"
+                data-aos-duration="1000"
+                data-aos-delay="1300"
+                data-aos-once="true"
               key={item.id}
               className="break-inside-avoid bg-white/40 backdrop-blur-md rounded-lg shadow-lg hover:shadow-2xl transition-all overflow-hidden"
             >

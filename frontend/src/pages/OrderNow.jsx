@@ -14,7 +14,12 @@ const OrderNow = () => {
 
   useEffect(() => {
     const urlType = searchParams.get("type");
-    if (urlType === "Stiker" || urlType === "Gaci") {
+    if (
+      urlType === "Stiker" ||
+      urlType === "Gaci" ||
+      urlType === "Banner" ||
+      urlType === "Jasa Desain"
+    ) {
       setType(urlType);
     }
   }, [searchParams]);
@@ -47,14 +52,27 @@ const OrderNow = () => {
     }
 
     let message = `*Pesanan Baru*\n`;
-    message += `Jenis: ${type}\n`;
-    message += `Tipe: ${subtype}\n`;
 
-    if (type === "Stiker") {
-      message += `Ukuran: tinggi ${height} cm x lebar ${width} cm\n`;
+    if (type) {
+      message += `*Jenis:* ${type}\n`;
     }
 
-    message += `Deskripsi:\n${description}\n`;
+    if (subtype) {
+      message += `*Tipe:* ${subtype}\n`;
+    }
+
+    if (type === "Stiker" && height && width) {
+      message += `*Ukuran:* tinggi ${height} cm x lebar ${width} cm\n`;
+    }
+
+    if (type === "Banner" && height && width) {
+      message += `*Ukuran Banner:* tinggi ${height} cm x lebar ${width} cm\n`;
+    }
+
+    if (description) {
+      message += `*Deskripsi:*\n_${description}_\n`;
+    }
+
     message += `\n📎 *Catatan:* Silakan kirim foto desain secara manual di chat ini.`;
 
     const encodedMessage = encodeURIComponent(message);
@@ -64,7 +82,12 @@ const OrderNow = () => {
   };
 
   return (
-    <div className="bg-sky low-sky">
+    <div
+      className="bg-sky low-sky"
+      data-aos="fade-in"
+      data-aos-duration="1000"
+      data-aos-once="true"
+    >
       <div className="max-w-xl mx-auto p-4 py-20 md:py-50">
         <h2 className="text-2xl font-bold text-center mb-4">Pesan Sekarang</h2>
 
@@ -91,6 +114,8 @@ const OrderNow = () => {
             <option value="">-- Pilih --</option>
             <option value="Stiker">Stiker</option>
             <option value="Gaci">Gaci</option>
+            <option value="Banner">Banner</option>
+            <option value="Jasa Desain">Jasa Desain</option>
           </select>
           {errors.type && (
             <p className="text-red-500 text-sm mb-2">{errors.type}</p>
@@ -169,6 +194,45 @@ const OrderNow = () => {
             </div>
           )}
 
+          {type === "Banner" && (
+            <div className="bg-gray-100 p-4 rounded mb-4">
+              <div className="flex gap-3 mb-1">
+                <div className="relative w-1/2">
+                  <input
+                    type="number"
+                    name="height"
+                    placeholder="Tinggi"
+                    value={height}
+                    onChange={(e) => setHeight(e.target.value)}
+                    className="w-full border border-gray-300 p-2 pr-10 rounded"
+                  />
+                  <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-sm">
+                    cm
+                  </span>
+                </div>
+                <div className="relative w-1/2">
+                  <input
+                    type="number"
+                    name="width"
+                    placeholder="Lebar"
+                    value={width}
+                    onChange={(e) => setWidth(e.target.value)}
+                    className="w-full border border-gray-300 p-2 pr-10 rounded"
+                  />
+                  <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-sm">
+                    cm
+                  </span>
+                </div>
+              </div>
+              {errors.height && (
+                <p className="text-red-500 text-sm">{errors.height}</p>
+              )}
+              {errors.width && (
+                <p className="text-red-500 text-sm">{errors.width}</p>
+              )}
+            </div>
+          )}
+
           <label className="block mb-1 font-semibold">Deskripsi</label>
           <textarea
             name="description"
@@ -187,7 +251,7 @@ const OrderNow = () => {
             className="w-full flex items-center gap-2 text-center justify-center bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded"
           >
             <Send size={18} className="stroke-white" />
-            Kirim Pesanan 
+            Kirim Pesanan
           </button>
         </form>
       </div>
