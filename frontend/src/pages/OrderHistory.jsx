@@ -1,25 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Clock, Package, Trash } from "lucide-react";
+import ConfirmationModal from "../components/ConfirmationModal"; // import modal
 
 const OrderHistory = () => {
   const [orders, setOrders] = useState([]);
-  const [selectedOrders, setSelectedOrders] = useState([]); // untuk ceklist
+  const [selectedOrders, setSelectedOrders] = useState([]); 
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+
+  const [showModal, setShowModal] = useState(false);
+  const [deleteType, setDeleteType] = useState(null); 
+  const [deleteIndex, setDeleteIndex] = useState(null);
 
   useEffect(() => {
     let savedOrders = JSON.parse(localStorage.getItem("orderStickers")) || [];
     setOrders(savedOrders);
   }, []);
 
-  // Hapus per item
   const deleteOrder = (index) => {
     const updated = orders.filter((_, i) => i !== index);
     setOrders(updated);
     localStorage.setItem("orderStickers", JSON.stringify(updated));
   };
 
-  // Hapus yang dipilih via ceklist
   const deleteSelected = () => {
     const updated = orders.filter((_, i) => !selectedOrders.includes(i));
     setOrders(updated);
@@ -27,14 +30,12 @@ const OrderHistory = () => {
     setSelectedOrders([]);
   };
 
-  // Hapus semua
   const deleteAll = () => {
     localStorage.removeItem("orderStickers");
     setOrders([]);
     setSelectedOrders([]);
   };
 
-  // Handle ceklist toggle
   const toggleSelect = (index) => {
     if (selectedOrders.includes(index)) {
       setSelectedOrders(selectedOrders.filter((i) => i !== index));
@@ -43,19 +44,18 @@ const OrderHistory = () => {
     }
   };
 
-  // Filter tanggal (pakai createdAt)
   const filteredOrders = orders.filter((order) => {
     if (!startDate && !endDate) return true;
 
-    const orderDate = new Date(order.createdAt); // valid karena ISO
+    const orderDate = new Date(order.createdAt);
     const start = startDate ? new Date(startDate) : null;
     const end = endDate ? new Date(endDate) : null;
 
     if (start && orderDate < start) return false;
     if (end) {
-      // tambahin 1 hari biar inclusive
-      end.setHours(23, 59, 59, 999);
-      if (orderDate > end) return false;
+      const endCopy = new Date(end);
+      endCopy.setHours(23, 59, 59, 999);
+      if (orderDate > endCopy) return false;
     }
 
     return true;
@@ -70,6 +70,26 @@ const OrderHistory = () => {
       hour: "2-digit",
       minute: "2-digit",
     });
+  };
+
+  const confirmDelete = (type, index = null) => {
+    setDeleteType(type);
+    setDeleteIndex(index);
+    setShowModal(true);
+  };
+
+  const handleConfirmDelete = () => {
+    if (deleteType === "single" && deleteIndex !== null) {
+      deleteOrder(deleteIndex);
+    } else if (deleteType === "selected") {
+      deleteSelected();
+    } else if (deleteType === "all") {
+      deleteAll();
+    }
+
+    setShowModal(false);
+    setDeleteType(null);
+    setDeleteIndex(null);
   };
 
   return (
@@ -100,8 +120,10 @@ const OrderHistory = () => {
 
       {/* Tombol hapus */}
       <div className="flex justify-end gap-4 mb-4 p-2">
+          {filteredOrders.length > 0 && (
+
         <button
-          onClick={deleteSelected}
+          onClick={() => confirmDelete("selected")}
           className="text-red-600 flex gap-2 cursor-pointer"
           disabled={selectedOrders.length === 0}
         >
@@ -110,6 +132,16 @@ const OrderHistory = () => {
           )}
           Hapus terpilih <Trash size={20} />
         </button>
+          )}
+
+        {/* {orders.length > 0 && (
+          <button
+            onClick={() => confirmDelete("all")}
+            className="text-red-600 flex gap-2 cursor-pointer"
+          >
+            Hapus semua <Trash size={20} />
+          </button>
+        )} */}
       </div>
 
       {/* List pesanan */}
@@ -124,15 +156,12 @@ const OrderHistory = () => {
               key={index}
               className="border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition flex items-start gap-3"
             >
-              {/* Checklist */}
               <input
                 type="checkbox"
                 checked={selectedOrders.includes(index)}
                 onChange={() => toggleSelect(index)}
                 className="mt-1"
               />
-
-              {/* Content */}
               <div className="flex-1">
                 <div className="flex justify-between items-center mb-2">
                   <h3 className="font-semibold flex items-center gap-2">
@@ -140,7 +169,7 @@ const OrderHistory = () => {
                     {order.type}
                   </h3>
                   <button
-                    onClick={() => deleteOrder(index)}
+                    onClick={() => confirmDelete("single", index)}
                     className="text-red-600 cursor-pointer"
                   >
                     <Trash size={20} />
@@ -158,6 +187,21 @@ const OrderHistory = () => {
           ))}
         </div>
       )}
+
+      {/* Modal Konfirmasi */}
+      <ConfirmationModal
+        isOpen={showModal}
+        title="Konfirmasi Hapus"
+        message={
+          deleteType === "single"
+            ? "Yakin ingin menghapus pesanan ini?"
+            : deleteType === "selected"
+            ? "Yakin ingin menghapus pesanan yang dipilih?"
+            : "Yakin ingin menghapus semua pesanan?"
+        }
+        onCancel={() => setShowModal(false)}
+        onConfirm={handleConfirmDelete}
+      />
     </div>
   );
 };

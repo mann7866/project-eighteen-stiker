@@ -34,15 +34,23 @@ export default function AboutPage() {
               data-aos-delay="500"
               data-aos-once="true"
             >
-              <h1 className="md:text-xl text-md font-bold mb-4 text-center sm:text-left">
-                Lorem ipsum dolor sit amet.
-              </h1>
+              {/* <h1 className="md:text-xl text-md font-bold mb-4 text-center sm:text-left">
+                Tentang EighteenSticker
+              </h1> */}
               <p className="md:text-lg text-sm text-justify mb-6">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero
-                aut sint minima praesentium exercitationem officia autem, animi
-                ullam repudiandae porro rem nihil! Dignissimos amet enim itaque
-                quibusdam quod. Error sed autem, tenetur minus quae ducimus
-                minima facilis commodi quaerat illo!
+                EighteenSticker lahir dari sebuah mimpi sederhana: bagaimana
+                caranya menghadirkan stiker, gantungan kunci, dan desain kreatif
+                yang bukan hanya sekadar produk, tapi juga punya cerita dan
+                makna di baliknya. Kami percaya, setiap orang butuh cara untuk
+                mengekspresikan diri. Lewat desain yang unik, detail yang rapi,
+                dan kualitas yang terjaga, EighteenSticker berusaha jadi teman
+                setiap langkahmu—baik untuk kebutuhan personal, komunitas,
+                hingga bisnis. Dengan semangat anak muda, kami membangun
+                EighteenSticker dari nol. Bukan hanya soal usaha, tapi juga
+                tentang perjalanan, kegigihan, dan keinginan untuk selalu
+                berkembang. Itulah kenapa kami selalu terbuka dengan kritik,
+                saran, bahkan ide dari pelanggan, karena kami ingin
+                tumbuh bersama kalian.
               </p>
             </div>
             <div

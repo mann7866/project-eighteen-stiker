@@ -88,15 +88,16 @@ export default function HomePage() {
             data-aos-once="true"
           >
             <h1 className="text-xl sm:text-2xl font-bold mb-4 text-center sm:text-left">
-              Lorem ipsum dolor sit amet.
+              Tentang EighteenSticker
             </h1>
             <p className="text-sm sm:text-base text-justify mb-6">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero aut
-              sint minima praesentium exercitationem officia autem, animi ullam
-              repudiandae porro rem nihil! Dignissimos amet enim itaque
-              quibusdam quod. Error sed autem, tenetur minus quae ducimus minima
-              facilis commodi quaerat illo!
+              EighteenSticker lahir dari sebuah mimpi sederhana: bagaimana
+              caranya menghadirkan stiker, gantungan kunci, dan desain kreatif
+              yang bukan hanya sekadar produk, tapi juga punya cerita dan makna
+              di baliknya. Kami percaya, setiap orang butuh cara untuk
+              mengekspresikan diri. 
             </p>
+            <a href="/about" className="text-sm sm:text-base text-blue-400">Selengkapnya...</a>
           </div>
           <div
             className="w-full flex justify-center md:justify-end"
