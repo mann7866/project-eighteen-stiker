@@ -174,6 +174,16 @@ export default function Navbar() {
                     Kontak
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/order/history"
+                    className={`block py-1 px-4 hover:bg-red-400 hover:text-white ${
+                      currentPath === "/order/history" ? "bg-red-400 text-white" : ""
+                    }`}
+                  >
+                    Order History
+                  </Link>
+                </li>
               </ul>
             )}
           </li>
