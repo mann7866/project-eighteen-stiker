@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/order/history"
+  to = "/index.html"
+  status = 200
