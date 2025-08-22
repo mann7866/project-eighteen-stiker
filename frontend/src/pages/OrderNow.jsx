@@ -11,6 +11,8 @@ const OrderNow = () => {
   const [width, setWidth] = useState("");
   const [errors, setErrors] = useState({});
   const [searchParams] = useSearchParams();
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
 
   useEffect(() => {
     const urlType = searchParams.get("type");
@@ -30,6 +32,8 @@ const OrderNow = () => {
 
     const result = OrderSchema.safeParse({
       type,
+      name,
+      address,
       subtype,
       height,
       width,
@@ -38,7 +42,6 @@ const OrderNow = () => {
 
     if (!result.success) {
       const fieldErrors = {};
-
       if (Array.isArray(result.error?.issues)) {
         result.error.issues.forEach((err) => {
           if (err.path && err.path.length > 0) {
@@ -46,12 +49,33 @@ const OrderNow = () => {
           }
         });
       }
-
       setErrors(fieldErrors);
       return;
     }
 
+    // Simpan ke localStorage
+    const newOrder = {
+      id: Date.now(),
+      name,
+      type,
+      subtype,
+      createdAt: new Date().toISOString(), // simpan dalam format standar
+    };
+    let existingOrders =
+      JSON.parse(localStorage.getItem("orderStickers")) || [];
+    existingOrders.push(newOrder);
+    localStorage.setItem("orderStickers", JSON.stringify(existingOrders));
+
+    // Format pesan WhatsApp
     let message = `*Pesanan Baru*\n`;
+
+    if (name) {
+      message += `*Nama:* ${name}\n`;
+    }
+
+    if (address) {
+      message += `*Alamat:* ${address}\n`; // 🆕 alamat tampil di pesan
+    }
 
     if (type) {
       message += `*Jenis:* ${type}\n`;
@@ -73,7 +97,7 @@ const OrderNow = () => {
       message += `*Deskripsi:*\n_${description}_\n`;
     }
 
-    message += `\n📎 *Catatan:* Silakan kirim foto desain secara manual di chat ini.`;
+    message += `\n📎 *Catatan:* Jika ada file desain silahkan kirim file desain secara manual di chat ini.`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappLink = `https://wa.me/6283891620352?text=${encodedMessage}`;
@@ -92,11 +116,39 @@ const OrderNow = () => {
         <h2 className="text-2xl font-bold text-center mb-4">Pesan Sekarang</h2>
 
         <div className="bg-yellow-100 text-yellow-800 border border-yellow-300 p-3 rounded mb-4 text-sm">
-          📎 <strong>Catatan:</strong> Foto desain bisa dikirim manual setelah
-          form ini dikirim melalui WhatsApp.
+          📎 <strong>Catatan:</strong> Jika ada file desain bisa dikirim manual
+          setelah form ini dikirim melalui WhatsApp.
         </div>
 
         <form onSubmit={handleSubmit}>
+          {/* Input Nama */}
+          <label className="block mb-1 font-semibold">Nama Pemesan</label>
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full border border-gray-300 p-2 rounded mb-3"
+            placeholder="Masukkan nama Anda"
+          />
+          {errors.name && (
+            <p className="text-red-500 text-sm mb-2">{errors.name}</p>
+          )}
+
+          {/* Input Alamat */}
+          <label className="block mb-1 font-semibold">Alamat</label>
+          <textarea
+            name="address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            className="w-full border border-gray-300 p-2 rounded mb-3"
+            placeholder="Masukkan alamat lengkap"
+            rows={2}
+          />
+          {errors.address && (
+            <p className="text-red-500 text-sm mb-2">{errors.address}</p>
+          )}
+
           <label className="block mb-2 font-semibold">Pilih Jenis</label>
           <select
             name="type"

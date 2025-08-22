@@ -23,7 +23,7 @@ export default function AboutPage() {
               data-aos-duration="1000"
               data-aos-once="true"
             >
-              Visi & Misi
+              Tentang EighteenSticker
             </h1>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -73,30 +73,36 @@ export default function AboutPage() {
             data-aos-delay="1000"
             data-aos-once="true"
           >
-            <div className="mb-4">
+            <div className="mb-6">
               <h2 className="md:text-xl text-md font-semibold mb-2">Visi</h2>
               <p className="md:text-lg text-sm text-justify">
-                Menjadi penyedia stiker custom terpercaya dan inovatif di
-                Indonesia dengan kualitas terbaik dan layanan prima.
+                Menyediakan jasa percetakan yang profesional, terpercaya, dan
+                berkualitas, dengan hasil yang memuaskan.
               </p>
             </div>
             <div>
               <h2 className="md:text-xl text-md font-semibold mb-2">Misi</h2>
               <ul className="list-disc list-inside md:text-lg text-sm text-justify space-y-1">
                 <li>
-                  Menyediakan produk stiker berkualitas tinggi dan tahan lama.
+                  Mengerjakan setiap pesanan dengan penuh ketelitian dan
+                  tanggung jawab.
                 </li>
                 <li>
-                  Memberikan layanan pelanggan yang cepat, ramah, dan
-                  profesional.
+                  Memberikan pelayanan terbaik yang ramah dan profesional.
                 </li>
                 <li>
-                  Mendukung kreativitas pelanggan melalui desain yang fleksibel
-                  dan personalisasi.
+                  Menjamin ketepatan waktu dalam proses pengerjaan pesanan.
                 </li>
                 <li>
-                  Terus berinovasi dalam teknologi produksi dan bahan ramah
-                  lingkungan.
+                  Menyediakan produk cetak berkualitas tinggi dan tahan lama.
+                </li>
+                <li>
+                  Mendukung kreativitas pelanggan melalui desain fleksibel dan
+                  personalisasi.
+                </li>
+                <li>
+                  Terus berinovasi dengan teknologi produksi modern dan
+                  penggunaan bahan ramah lingkungan.
                 </li>
               </ul>
             </div>

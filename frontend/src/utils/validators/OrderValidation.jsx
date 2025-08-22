@@ -7,13 +7,20 @@ export const OrderSchema = z
       .refine(
         (val) => ["Stiker", "Gaci", "Banner", "Jasa Desain"].includes(val),
         { message: "Jenis harus dipilih (Stiker, Gaci, Banner, atau Jasa Desain)." }
-      ),
+      )
+      .min(1, { message: "Jenis harus diisi." }),
     subtype: z.string().optional(),
     height: z.string().optional(),
     width: z.string().optional(),
     description: z
       .string()
       .min(1, { message: "Deskripsi harus diisi." }),
+    name: z
+      .string()
+      .min(1, { message: "Nama harus diisi." }),
+    address: z
+      .string()
+      .min(1, { message: "Alamat harus diisi." }),
   })
   .superRefine((data, ctx) => {
     if (["Stiker", "Gaci"].includes(data.type) && !data.subtype) {

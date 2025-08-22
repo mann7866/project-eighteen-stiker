@@ -8,6 +8,7 @@ import ContactPage from "../pages/Contact";
 import FooterComponent from "../components/Footer";
 import Navbar from "../components/Navbar";
 import OrderNow from "../pages/OrderNow";
+import OrderHistory from "../pages/OrderHistory";
 
 function AppRoutes() {
   return (
@@ -22,6 +23,7 @@ function AppRoutes() {
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/order/now" element={<OrderNow />} />
+        <Route path="/order/history" element={<OrderHistory />} />
       </Routes>
       
       <FooterComponent />

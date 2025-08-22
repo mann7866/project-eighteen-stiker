@@ -47,9 +47,9 @@ export default function HomePage() {
                 untuk Segala Kebutuhan
               </h1>
               <p className="text-base/loose opacity-50 mb-6  animate__animated animate__fadeInUp animate__delay-2s">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Voluptatibus explicabo exercitationem ducimus modi dolor sunt,
-                earum dicta quidem distinctio mollitia!
+                Melayani jasa percetakan stiker, gantungan kunci, banner,
+                undangan, dan berbagai produk cetak lainnya dengan kualitas
+                terbaik dan harga terjangkau.
               </p>
 
               <div className="flex items-center sm:gap-4 gap-2  animate__animated animate__fadeInUp animate__delay-2s">
@@ -119,27 +119,28 @@ export default function HomePage() {
 
       {/* product page */}
       <div className="bg-sky px-5 sm:px-7 md:px-6 lg:px-15 py-0 max-w-7xl mx-auto">
-        <div
-          className="py-20"
-         
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold text-center bg-gradient-to-br from-blue-200 via-blue-400 to-blue-800 bg-clip-text text-transparent"
-           data-aos="zoom-in-right"
-          data-aos-duration="1000"
-          data-aos-once="true"
+        <div className="py-20">
+          <h2
+            className="text-3xl sm:text-4xl font-bold text-center bg-gradient-to-br from-blue-200 via-blue-400 to-blue-800 bg-clip-text text-transparent"
+            data-aos="zoom-in-right"
+            data-aos-duration="1000"
+            data-aos-once="true"
           >
             Produk & Layanan
           </h2>
 
-          <p className=" max-w-2xl text-center mx-auto mt-4"
-           data-aos="zoom-in-right"
-          data-aos-duration="1000"
-          data-aos-delay="500"
-          data-aos-once="true"
+          <p
+            className=" max-w-2xl text-center mx-auto mt-4"
+            data-aos="zoom-in-right"
+            data-aos-duration="1000"
+            data-aos-delay="500"
+            data-aos-once="true"
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-            fugiat aut reprehenderit dolorum. Excepturi, modi. Nostrum nisi a
-            dolorum perspiciatis possimus quod officiis dolorem earum?
+            Kami menyediakan berbagai layanan percetakan mulai dari pembuatan
+            stiker, gantungan kunci, banner, hingga undangan. Dengan kualitas
+            cetak terbaik, desain fleksibel, dan pengerjaan tepat waktu, kami
+            berkomitmen untuk memberikan hasil yang memuaskan bagi setiap
+            pelanggan.
           </p>
         </div>
 
@@ -176,9 +177,10 @@ export default function HomePage() {
             data-aos-duration="1000"
             data-aos-once="true"
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-            fugiat aut reprehenderit dolorum. Excepturi, modi. Nostrum nisi a
-            dolorum perspiciatis possimus quod officiis dolorem earum?
+            Galeri ini menampilkan berbagai hasil karya percetakan kami, mulai
+            dari stiker, banner, gantungan kunci, hingga undangan. Setiap produk
+            dikerjakan dengan detail, kualitas tinggi, dan desain yang menarik
+            untuk memenuhi kebutuhan Anda.
           </p>
 
           {/* Swiper Gallery */}
