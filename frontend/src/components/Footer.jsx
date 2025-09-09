@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { SiShopee } from "react-icons/si";
+import "swiper/css";
 
 const FooterComponent = () => {
   return (
@@ -7,13 +9,13 @@ const FooterComponent = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Info Utama */}
         <div>
-          <h3 className="text-2xl text-black font-bold mb-4">EighteenSticker</h3>
+          <h3 className="text-2xl text-black font-bold mb-4">
+            EighteenSticker
+          </h3>
           <p className="text-sm leading-relaxed">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid
-            assumenda eligendi ea, accusantium, dolorum nulla totam deserunt
-            repellat modi at magni quos earum eveniet suscipit? Deleniti minus
-            saepe praesentium illum reprehenderit cumque magnam provident? Nam
-            praesentium excepturi iste quisquam inventore?
+            Melayani jasa percetakan stiker, gantungan kunci, banner, undangan,
+            dan berbagai produk cetak lainnya dengan kualitas terbaik dan harga
+            terjangkau.
           </p>
 
           <div className="mt-4 space-y-2">
@@ -34,14 +36,38 @@ const FooterComponent = () => {
           </div>
         </div>
 
+        {/* Ikon Sosial (statis di tengah) */}
         <div className="flex md:justify-center">
           <div className="flex gap-4 text-xl mt-4">
-            <i className="fa-brands fa-github hover:text-black cursor-pointer"></i>
-            <i className="fa-brands fa-instagram hover:text-pink-600 cursor-pointer"></i>
-            <i className="fa-brands fa-twitter hover:text-blue-500 cursor-pointer"></i>
-            <i className="fa-brands fa-linkedin hover:text-blue-700 cursor-pointer"></i>
+            <a
+              href="https://www.instagram.com/eighteensticker"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-600 cursor-pointer"
+            >
+              <i className="fa-brands fa-instagram"></i>
+            </a>
+
+            <a
+              href="https://wa.me/6283891620352"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-green-500 cursor-pointer"
+            >
+              <i className="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <a
+              href="https://shopee.co.id/tokokamu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-orange-600 cursor-pointer"
+            >
+              <SiShopee size={20} />
+            </a>
           </div>
         </div>
+
         {/* Menu Navigasi */}
         <div className="md:col-span-1">
           <h5 className="text-lg font-semibold mb-3">Menu</h5>
@@ -81,9 +107,10 @@ const FooterComponent = () => {
       </div>
 
       {/* Copyright */}
-      <div className="mt-10 border-t border-gray-300 pt-4 text-center text-sm">
+      <div className="mt-6 border-t border-gray-300 pt-4 text-center text-sm">
         &copy; {new Date().getFullYear()} by{" "}
-        <span className="font-bold">Rohman</span> — All Rights Reserved.
+        <span className="font-bold">Rohman</span> — Crafted with ♥ ReactJs +
+        Tailwindcss. All Rights Reserved.
       </div>
     </footer>
   );

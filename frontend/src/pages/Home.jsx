@@ -10,6 +10,8 @@ import { Navigation } from "swiper/modules";
 import FormContact from "../components/FormContact";
 import { ArrowBigRight, ArrowBigRightDash } from "lucide-react";
 import ProductList from "../components/ProductList";
+import { Autoplay } from "swiper/modules";
+import { SiShopee } from "react-icons/si";
 
 export default function HomePage() {
   const [openId, setOpenId] = useState(null);
@@ -95,9 +97,11 @@ export default function HomePage() {
               caranya menghadirkan stiker, gantungan kunci, dan desain kreatif
               yang bukan hanya sekadar produk, tapi juga punya cerita dan makna
               di baliknya. Kami percaya, setiap orang butuh cara untuk
-              mengekspresikan diri. 
+              mengekspresikan diri.
             </p>
-            <a href="/about" className="text-sm sm:text-base text-blue-400">Selengkapnya...</a>
+            <a href="/about" className="text-sm sm:text-base text-blue-400">
+              Selengkapnya...
+            </a>
           </div>
           <div
             className="w-full flex justify-center md:justify-end"
@@ -119,7 +123,7 @@ export default function HomePage() {
       </div>
 
       {/* product page */}
-      <div className="bg-sky px-5 sm:px-7 md:px-6 lg:px-15 py-0 max-w-7xl mx-auto">
+      <div className="bg-sky px-5 sm:px-7 md:px-6 lg:px-15 py-5 sm:py-10 md:py-20 max-w-7xl mx-auto">
         <div className="py-20">
           <h2
             className="text-3xl sm:text-4xl font-bold text-center bg-gradient-to-br from-blue-200 via-blue-400 to-blue-800 bg-clip-text text-transparent"
@@ -161,8 +165,67 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* Slider Social Media */}
+      <div className=" max-w-full mx-auto">
+        <Swiper
+          modules={[Autoplay]}
+          slidesPerView={1} // hanya 1 icon per slide
+          loop={true} // supaya muter terus
+          autoplay={{
+            delay: 2000, // ganti icon tiap 2 detik
+            disableOnInteraction: false, // tetap jalan walau user klik
+          }}
+          className="py-6 "
+        >
+          {/* Instagram */}
+          <SwiperSlide>
+            <a
+              href="https://www.instagram.com/eighteensticker"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-24 flex justify-center items-center bg-pink-100/40 rounded-xl p-4"
+            >
+              <i className="fa-brands fa-instagram text-pink-600 text-4xl mr-2"></i>
+              <span className="text-sm md:text-lg">
+                🌟 "Ikuti inspirasi kami di Instagram"
+              </span>
+            </a>
+          </SwiperSlide>
+
+          {/* WhatsApp */}
+          <SwiperSlide>
+            <a
+              href="https://wa.me/6283891620352"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-24 flex justify-center items-center bg-green-100/40 rounded-xl p-4"
+            >
+              <i className="fa-brands fa-whatsapp text-green-500 text-4xl mr-2"></i>
+              <span className="text-sm md:text-lg">
+                🤝 "Konsultasi desain? Hubungi kami di WhatsApp"
+              </span>
+            </a>
+          </SwiperSlide>
+
+          {/* Shopee */}
+          <SwiperSlide>
+            <a
+              href="https://shopee.co.id/tokokamu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-24 flex justify-center items-center bg-orange-100/40 rounded-xl p-4"
+            >
+              <SiShopee className="text-orange-600 mr-2" size={35} />
+              <span className="text-sm md:text-lg">
+                🏷️ "Klik di sini untuk order di Shopee"
+              </span>
+            </a>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+
       {/* galery */}
-      <div className="bg-blue-300 mt-20 px-5 sm:px-7 md:px-6 lg:px-15">
+      <div className="bg-blue-300 mt-0 px-5 sm:px-7 md:px-6 lg:px-15">
         <div className="py-20">
           <h2
             className="text-3xl sm:text-4xl font-bold text-center mb-5 text-white"
