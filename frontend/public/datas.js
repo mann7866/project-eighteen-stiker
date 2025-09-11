@@ -34,7 +34,7 @@ export const products = [
   },
   {
     title: "Gaci Custom",
-    desc: "Buat gantungan kunci dengan menyesuaikan keinginnan anda bisa pakai bahan akrilik maupun polimerCustom gantungan kunci anti-mainstream 🚀! Mau yang glossy pakai akrilik, atau yang playful dengan polimer? Semua bisaaa!.",
+    desc: "Gantungan kunci custom 🚀! Pilih bahan akrilik untuk tampilan glossy atau polimer untuk gaya playful. Semua bisa sesuai keinginanmu!.",
     img: imageGaciCustom,
     sizes: "Bebas (custom shape & size)",
     price: "Harga menyesuaikan bahan",
