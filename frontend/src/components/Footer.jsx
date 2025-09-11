@@ -58,7 +58,7 @@ const FooterComponent = () => {
             </a>
 
             <a
-              href="https://shopee.co.id/tokokamu"
+              href="https://s.shopee.co.id/5pyhHxJJSy"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-orange-600 cursor-pointer"

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { products } from "../../public/datas";
 
-const ProductList = () => {
+const ProductList = ({ limit }) => {
   const [openIndex, setOpenIndex] = useState(null);
   const navigate = useNavigate();
 
@@ -14,16 +14,18 @@ const ProductList = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  // Kalau ada limit → slice, kalau tidak ada → tampilkan semua
+  const displayedProducts = limit ? products.slice(0, limit) : products;
+
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-2 sm:px-4"
-    >
-      {products.map((item, index) => (
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-2 sm:px-4">
+      {displayedProducts.map((item, index) => (
         <div
           key={index}
           className="group relative z-0 hover:z-10 bg-white/30 backdrop-blur-md rounded-lg shadow-md overflow-visible transition-all transform hover:scale-105"
           data-aos="zoom-in-right"
           data-aos-duration="1000"
-          data-aos-delay={index * 1000}
+          data-aos-delay={index * 200}
           data-aos-once="true"
         >
           {/* Gambar */}
@@ -56,8 +58,7 @@ const ProductList = () => {
               <span className="font-semibold">Ukuran:</span> {item.sizes}
             </p>
             <p>
-              <span className="font-semibold">Harga Estimasi:</span>{" "}
-              {item.price}
+              <span className="font-semibold">Harga Estimasi:</span> {item.price}
             </p>
           </div>
         </div>

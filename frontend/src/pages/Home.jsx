@@ -149,9 +149,9 @@ export default function HomePage() {
           </p>
         </div>
 
-        <ProductList />
+        <ProductList limit={4} />
         <div
-          className="flex justify-center mt-15"
+          className="flex justify-center mt-15" 
           data-aos="zoom-in-right"
           data-aos-duration="1000"
           data-aos-once="true"
@@ -166,7 +166,12 @@ export default function HomePage() {
       </div>
 
       {/* Slider Social Media */}
-      <div className=" max-w-full mx-auto">
+      <div
+        className=" max-w-full mx-auto"
+        data-aos="fade-in"
+        data-aos-duration="1000"
+        data-aos-once="true"
+      >
         <Swiper
           modules={[Autoplay]}
           slidesPerView={1} // hanya 1 icon per slide
@@ -210,7 +215,7 @@ export default function HomePage() {
           {/* Shopee */}
           <SwiperSlide>
             <a
-              href="https://shopee.co.id/tokokamu"
+              href="https://s.shopee.co.id/5pyhHxJJSy"
               target="_blank"
               rel="noopener noreferrer"
               className="h-24 flex justify-center items-center bg-orange-100/40 rounded-xl p-4"
@@ -263,20 +268,25 @@ export default function HomePage() {
             {katalogDatas.map((item, index) => (
               <SwiperSlide key={item.id}>
                 <div
-                  className="bg-white backdrop-blur-md rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all h-full"
+                  className="bg-white backdrop-blur-md rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all h-full flex flex-col"
                   data-aos="zoom-in-left"
                   data-aos-duration="1000"
-                  data-aos-delay={index * 1000}
+                  data-aos-delay={index * 300} // kasih delay lebih rapih, jangan terlalu lama
                   data-aos-once="true"
                 >
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="p-4">
+                  {/* Fixed image height */}
+                  <div className="w-full h-60 overflow-hidden">
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-4 flex-1 flex flex-col">
                     <h3 className="text-lg font-semibold">{item.title}</h3>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-gray-600 mt-1">
                       <strong>Ukuran:</strong> {item.size} <br />
                       <strong>Warna:</strong> {item.color} <br />
                       <strong>Bahan:</strong> {item.material}

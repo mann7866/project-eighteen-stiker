@@ -1,4 +1,8 @@
 import logo from "../public/assets/images/logo/logo.png"
+import imageProductStickerCustom from "../public/assets/images/galery/img4.jpg"
+import imageGaciCustom from "../public/assets/images/galery/img10.jpg"
+import imageJasaDesain from "../public/assets/images/product/img1.png"
+import imageBanner from "../public/assets/images/product/img2.png"
 
 export const products = [
   {
@@ -6,7 +10,7 @@ export const products = [
     desc: "Label untuk botol, makanan, dan kosmetik. Tahan air dan elegan.",
     img: logo, // sesuaikan
     sizes: "2x5cm, 4x6cm, custom",
-    price: "Mulai Rp25.000 / 50pcs",
+    price: "Menyesuaikan ukuran",
     type: "Stiker",
     delay: 1400
   },
@@ -15,82 +19,149 @@ export const products = [
     desc: "Cocok untuk branding event, seminar, dan kampanye iklan.",
     img: logo,
     sizes: "5x5cm, A6, A5, custom",
-    price: "Mulai Rp30.000 / 100pcs",
+    price: "Menyesuaikan ukuran",
     type: "Stiker",
-    delay: 1400
+    delay: 1500
   },
   {
     title: "Stiker Custom",
     desc: "Buat desain sesukamu: karakter, nama, atau logo brand pribadi.",
-    img: logo,
+    img: imageProductStickerCustom,
     sizes: "Bebas (custom shape & size)",
-    price: "Harga menyesuaikan desain",
+    price: "Harga menyesuaikan ukuran",
     type: "Stiker",
-    delay: 1500
+    delay: 1600
   },
-  //   {
-  //     title: "Stiker Dinding & Dekorasi",
-  //     desc: "Untuk dekor rumah dan kantor agar lebih hidup & estetik.",
-  //     img: logo,
-  //     sizes: "A3, A2, custom",
-  //     price: "Mulai Rp50.000 / set",
-  //   },
+  {
+    title: "Gaci Custom",
+    desc: "Buat gantungan kunci dengan menyesuaikan keinginnan anda bisa pakai bahan akrilik maupun polimerCustom gantungan kunci anti-mainstream 🚀! Mau yang glossy pakai akrilik, atau yang playful dengan polimer? Semua bisaaa!.",
+    img: imageGaciCustom,
+    sizes: "Bebas (custom shape & size)",
+    price: "Harga menyesuaikan bahan",
+    type: "Gaci",
+    delay: 1700
+  },
+  {
+    title: "Banner",
+    desc: "Ciptakan kesan profesional dengan banner berkualitas tinggi. Desain bisa full custom, ukuran fleksibel, dan bahan menyesuaikan kebutuhan untuk hasil yang elegan dan tahan lama.",
+    img: imageBanner,
+    sizes: "Bebas (custom shape & size)",
+    price: "Harga menyesuaikan ukuran dan bahan",
+    type: "Banner",
+    delay: 1900
+  },
+  {
+    title: "Jasa Desain",
+    desc: "Desain bukan cuma gambar, tapi cerita tentang brand kamu 🎨✨. Dengan jasa desain kami, kamu bebas berekspresi dan hasilnya dijamin standout!",
+    img: imageJasaDesain,
+    sizes: "Bebas (custom shape & size)",
+    price: "Harga menyesuaikan ukuran dan bahan",
+    type: "Jasa Desain",
+    delay: 2000
+  },
 ];
+
+import imageKatalog1 from "../public/assets/images/galery/img1.jpg"
+import imageKatalog2 from "../public/assets/images/galery/img2.jpg"
+import imageKatalog3 from "../public/assets/images/galery/img3.jpg"
+import imageKatalog4 from "../public/assets/images/galery/img4.jpg"
+import imageKatalog5 from "../public/assets/images/galery/img5.jpg"
+import imageKatalog6 from "../public/assets/images/galery/img6.jpg"
+import imageKatalog7 from "../public/assets/images/galery/img7.jpg"
+import imageKatalog8 from "../public/assets/images/galery/img8.jpg"
+import imageKatalog9 from "../public/assets/images/galery/img9.jpg"
+import imageKatalog10 from "../public/assets/images/galery/img10.jpg"
 
 export const katalogDatas = [
   {
     id: 1,
-    title: "Stiker Produk UMKM",
-    category: "UMKM",
-    size: "Small",
-    color: "White",
-    material: "Vinyl",
-    img: logo,
+    title: "Gaci Custom",
+    category: "Gaci Custom",
+    size: "Medium",
+    color: "Colorful",
+    material: ["polimer"],
+    img: imageKatalog1,
   },
   {
     id: 2,
-    title: "Stiker Promosi Event",
-    category: "Promosi",
+     title: "Gaci Custom",
+    category: "Custom",
     size: "Medium",
     color: "Colorful",
-    material: "Glossy",
-    img: logo,
+    material: ["polimer"],
+    img: imageKatalog2,
   },
   {
     id: 23453245,
-    title: "Stiker Promosi Event",
-    category: "Promosi",
+    title: "Gaci Custom",
+    category: "Custom",
     size: "Medium",
     color: "Colorful",
-    material: "Glossy",
-    img: logo,
+    material: ["polimer"],
+    img: imageKatalog3,
   },
   {
     id: 245432,
-    title: "Stiker Promosi Event",
-    category: "Promosi",
-    size: "Medium",
+     title: "Sticker Custom",
+    category: "Custom Stiker",
+    size: "Small",
     color: "Colorful",
-    material: "Glossy",
-    img: logo,
+    material: ["Chromo","vinyl"],
+    img: imageKatalog4,
   },
   {
     id: 223434,
-    title: "Stiker Promosi Event",
-    category: "Promosi",
+    title: "Gaci Custom",
+    category: "Gaci Custom",
     size: "Medium",
     color: "Colorful",
-    material: "Glossy",
-    img: logo,
+    material: "polimer",
+    img: imageKatalog5,
   },
   {
     id: 3,
-    title: "Stiker Dinding Kantor",
-    category: "Dekorasi",
-    size: "Large",
-    color: "Black",
-    material: "Matte",
-    img: logo,
+     title: "Gaci Custom",
+    category: "Gaci Custom",
+    size: "Small",
+    color: "Colorful",
+    material: ["akrilik"],
+    img: imageKatalog6,
+  },
+  {
+    id: 3345435222,
+     title: "Gaci Custom",
+    category: "Gaci Custom",
+    size: "Medium",
+    color: "Colorful",
+    material: ["akrilik"],
+    img: imageKatalog7,
+  },
+  {
+    id: 33344445435,
+     title: "Sticker Custom",
+    category: "Custom",
+    size: "Small",
+    color: "Colorful",
+    material: ["Chromo","vinyl"],
+    img: imageKatalog8,
+  },
+  {
+    id: 345324554545,
+     title: "Gaci Custom",
+    category: "Gaci Custom",
+    size: "Medium",
+    color: "Colorful",
+    material: ["polimer"],
+    img: imageKatalog9,
+  },
+  {
+    id: 6346998877,
+     title: "Gaci Custom",
+    category: "Gaci Custom",
+    size: "Small",
+    color: "Colorful",
+    material: ["akrilik"],
+    img: imageKatalog10,
   },
   // ...tambahkan lebih banyak data
 ];
