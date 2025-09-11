@@ -24,15 +24,15 @@ const FooterComponent = () => {
               className="flex items-center gap-2 text-sm hover:underline"
             >
               <i className="fa-brands fa-whatsapp"></i>
-              +62 822-668-194-51
+              +62 838-9162-0352
             </Link>
-            <Link
+            {/* <Link
               to="#"
               className="flex items-center gap-2 text-sm hover:underline"
             >
               <i className="fa-regular fa-envelope"></i>
               test@gmail.com
-            </Link>
+            </Link> */}
           </div>
         </div>
 
