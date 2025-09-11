@@ -20,7 +20,7 @@ const FooterComponent = () => {
 
           <div className="mt-4 space-y-2">
             <Link
-              to="#"
+              to="https://www.instagram.com/eighteensticker"
               className="flex items-center gap-2 text-sm hover:underline"
             >
               <i className="fa-brands fa-whatsapp"></i>
