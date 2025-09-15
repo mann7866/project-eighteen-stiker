@@ -3,6 +3,7 @@ import "./App.css";
 import AppRoutes from "./routes";
 import ScrollToTop from "./components/ScroolToTop";
 import PageLoader from "./components/Preloader";
+import FloatingMusicButton from "./components/FloatingMusicButton";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <>
+      <FloatingMusicButton/>
       <ScrollToTop />
       <AppRoutes />
     </>
