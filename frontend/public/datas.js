@@ -3,19 +3,20 @@ import imageProductStickerCustom from "../public/assets/images/galery/img4.jpg"
 import imageGaciCustom from "../public/assets/images/galery/img10.jpg"
 import imageJasaDesain from "../public/assets/images/product/img1.png"
 import imageBanner from "../public/assets/images/product/img2.png"
+import stickerProduct from "../public/assets/images/product/sticker product.jpg"
 
 export const products = [
   {
-    title: "Stiker Produk UMKM",
+    title: "Sticker Produk UMKM",
     desc: "Label untuk botol, makanan, dan kosmetik. Tahan air dan elegan.",
-    img: logo, // sesuaikan
+    img: stickerProduct, // sesuaikan
     sizes: "2x5cm, 4x6cm, custom",
     price: "Menyesuaikan ukuran",
     type: "Stiker",
     delay: 1400
   },
   {
-    title: "Stiker Promosi",
+    title: "Sticker Promosi",
     desc: "Cocok untuk branding event, seminar, dan kampanye iklan.",
     img: logo,
     sizes: "5x5cm, A6, A5, custom",
@@ -24,7 +25,7 @@ export const products = [
     delay: 1500
   },
   {
-    title: "Stiker Custom",
+    title: "Sticker Custom",
     desc: "Buat desain sesukamu: karakter, nama, atau logo brand pribadi.",
     img: imageProductStickerCustom,
     sizes: "Bebas (custom shape & size)",
@@ -33,7 +34,7 @@ export const products = [
     delay: 1600
   },
   {
-    title: "Gaci Custom",
+    title: "Ganci Custom",
     desc: "Gantungan kunci custom 🚀! Pilih bahan akrilik untuk tampilan glossy atau polimer untuk gaya playful. Semua bisa sesuai keinginanmu!.",
     img: imageGaciCustom,
     sizes: "Bebas (custom shape & size)",

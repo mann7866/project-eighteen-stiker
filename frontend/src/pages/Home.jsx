@@ -12,6 +12,7 @@ import { ArrowBigRight, ArrowBigRightDash } from "lucide-react";
 import ProductList from "../components/ProductList";
 import { Autoplay } from "swiper/modules";
 import { SiShopee } from "react-icons/si";
+import FloatingMusicButton from "../components/FloatingMusicButton";
 
 export default function HomePage() {
   const [openId, setOpenId] = useState(null);
@@ -37,6 +38,7 @@ export default function HomePage() {
   };
   return (
     <>
+      <FloatingMusicButton/>
       <div className="home-header h-[1080px] sm:h-[1050px] md:h-[900px] lg:h-[700px] pt-[150px]">
         <div className="home text-black flex ">
           <div className="grid md:grid-cols-2 grid-cols-1 items-center py-0 px-5 sm:px-7 md:px-6 lg:px-15">
