@@ -72,6 +72,7 @@ import imageKatalog7 from "../public/assets/images/galery/img7.jpg"
 import imageKatalog8 from "../public/assets/images/galery/img8.jpg"
 import imageKatalog9 from "../public/assets/images/galery/img9.jpg"
 import imageKatalog10 from "../public/assets/images/galery/img10.jpg"
+import imageKatalog11 from "../public/assets/images/galery/img11.jpg"
 
 export const katalogDatas = [
   {
@@ -163,6 +164,15 @@ export const katalogDatas = [
     color: "Colorful",
     material: ["akrilik"],
     img: imageKatalog10,
+  },
+  {
+    id: 2118877,
+     title: "Sticker Custom",
+    category: "Sticker Custom",
+    size: "Big",
+    color: "Colorful",
+    material: ["vinyil"],
+    img: imageKatalog11,
   },
   // ...tambahkan lebih banyak data
 ];
